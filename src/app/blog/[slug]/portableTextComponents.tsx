@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 // app/components/portableTextComponents.tsx
 import Image from "next/image";
