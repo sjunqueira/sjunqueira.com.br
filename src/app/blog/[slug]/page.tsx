@@ -39,7 +39,7 @@ export default async function PostPage({
         <Image
           src={postImageUrl}
           alt={post.title}
-          className="max-w-full w-full rounded-xl justify-center mb-5"
+          className="max-w-full w-full rounded-xl justify-center"
           width="1920"
           height="1080"
         />
