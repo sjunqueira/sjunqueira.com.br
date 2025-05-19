@@ -22,6 +22,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta name="color-scheme" content="light dark" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
+      </head>
       <body className={`${getInter} antialiased`}>
         <ThemeProvider>
           <Header />
