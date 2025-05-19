@@ -14,7 +14,7 @@ export default async function blogPost() {
   const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
 
   return (
-    <main className="container mx-auto min-h-[100dvh] max-w-3xl p-8">
+    <main className="container mx-auto min-h-[100dvh] max-w-3xl px-4">
       <h1 className="mb-8 text-4xl font-bold">Posts</h1>
       <ul className="flex flex-col gap-y-4">
         {posts.map((post) => (
