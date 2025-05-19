@@ -32,36 +32,28 @@ export const portableTextComponents = {
   },
   block: {
     h1: ({ children }: any) => (
-      <h1 className="mb-4 bg-gradient-to-r from-gray-200 to-gray-400 bg-clip-text text-5xl font-bold text-transparent">
-        {children}
-      </h1>
+      <h1 className="mb-4 text-5xl font-bold">{children}</h1>
     ),
     h2: ({ children }: any) => (
-      <h2 className="mb-8 border-b border-b-neutral-800 pb-2 text-2xl font-semibold text-gray-300">
+      <h2 className="mb-8 border-b border-b-neutral-800 pb-2 text-2xl font-semibold">
         {children}
       </h2>
     ),
     normal: ({ children }: any) => (
-      <p className="mb-4 text-base leading-relaxed text-neutral-700 dark:text-neutral-300">
-        {children}
-      </p>
+      <p className="mb-4 text-base leading-relaxed">{children}</p>
     ),
     blockquote: ({ children }: any) => (
-      <blockquote className="my-6 border-l-4 border-neutral-300 pl-4 text-neutral-600 italic dark:border-neutral-700 dark:text-neutral-400">
+      <blockquote className="my-6 border-l-4 pl-4 italic">
         {children}
       </blockquote>
     ),
   },
   list: {
     bullet: ({ children }: any) => (
-      <ul className="mb-4 list-inside list-disc pl-5 text-neutral-700 dark:text-neutral-300">
-        {children}
-      </ul>
+      <ul className="mb-4 list-inside list-disc pl-5">{children}</ul>
     ),
     number: ({ children }: any) => (
-      <ol className="mb-4 list-inside list-decimal pl-5 text-neutral-700 dark:text-neutral-300">
-        {children}
-      </ol>
+      <ol className="mb-4 list-inside list-decimal pl-5">{children}</ol>
     ),
   },
   code: {},
@@ -77,15 +69,9 @@ export const portableTextComponents = {
       </Link>
     ),
     strong: ({ children }: any) => (
-      <strong className="font-semibold text-neutral-900 dark:text-white">
-        {children}
-      </strong>
+      <strong className="font-semibold">{children}</strong>
     ),
-    em: ({ children }: any) => (
-      <em className="text-neutral-700 italic dark:text-neutral-300">
-        {children}
-      </em>
-    ),
+    em: ({ children }: any) => <em className="italic">{children}</em>,
     code: ({ children }: any) => (
       <code className="rounded bg-neutral-100 px-1 py-0.5 text-sm text-red-600 dark:bg-neutral-800 dark:text-red-400">
         {children}

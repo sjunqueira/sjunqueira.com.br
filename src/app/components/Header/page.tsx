@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Header() {
-  const { theme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -19,11 +19,11 @@ export default function Header() {
       <div
         className={`sticky top-0 z-50 m-4 flex w-9/12 items-center justify-center rounded-2xl shadow-md backdrop-blur-md ${
           theme === "dark"
-            ? "border-b border-neutral-800 bg-neutral-900"
-            : "border-b border-neutral-200 bg-white"
+            ? "border-b border-neutral-800 bg-neutral-900/90"
+            : "border-b border-neutral-200 bg-white/90"
         } `}
       >
-        <div className="flex w-full items-center justify-center p-2">
+        <div className="flex w-full items-center justify-between pr-5 pl-5">
           <Link href={"/"}>
             <Image
               src={"/logo.svg"}
@@ -33,22 +33,27 @@ export default function Header() {
               className={theme === "dark" ? "invert-0" : "invert"}
             ></Image>
           </Link>
-        </div>
-
-        <nav className="flex items-center gap-4 text-sm">
-          {/* <Link href="/" className="hover:underline">
-            Home
-          </Link>
-          <Link href="/blog" className="hover:underline">
-            Blog
-          </Link>
-          <Link href="/projects" className="hover:underline">
+          <nav className="flex items-center justify-center gap-4 p-5 text-sm">
+            <Link href="/" className="hover:underline">
+              Home
+            </Link>
+            <Link href="/blog" className="hover:underline">
+              Blog
+            </Link>
+            <button
+              className="cursor-pointer"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            >
+              {theme === "dark" ? "🌙" : "🌞"}
+            </button>
+            {/* <Link href="/projects" className="hover:underline">
             Projetos
-          </Link>
-          <Link href="/about" className="hover:underline">
+            </Link>
+            <Link href="/about" className="hover:underline">
             Sobre
-          </Link> */}
-        </nav>
+            </Link> */}
+          </nav>
+        </div>
       </div>
     </div>
   );

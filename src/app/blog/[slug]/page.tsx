@@ -5,6 +5,10 @@ import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { client } from "@/sanity/client";
 import Link from "next/link";
 import Image from "next/image";
+import {
+  GithubLogoIcon,
+  LinkedinLogoIcon,
+} from "@phosphor-icons/react/dist/ssr";
 
 const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]`;
 
@@ -31,7 +35,7 @@ export default async function PostPage({
     : null;
 
   return (
-    <main className="prose-neutral dark:prose-invert mx-auto flex max-w-3xl flex-col justify-center px-4 sm:px-0">
+    <main className="prose-neutral dark:prose-invert mx-auto flex max-w-6xl flex-col justify-center px-4">
       <Link href="/blog" className="mb-5 hover:underline">
         ← Ver todos os posts
       </Link>
@@ -44,39 +48,64 @@ export default async function PostPage({
           height="1080"
         />
       )}
-      <div className="flex w-full items-center justify-center gap-3 rounded-2xl p-3">
-        <div className="flex w-60 items-center justify-center gap-3 rounded-3xl p-3 hover:bg-neutral-900">
-          <div className="w-15">
-            <Image
-              src={"/sergio.jpg"}
-              alt="Foto de Sergio Junqueira"
-              width={50}
-              height={50}
-              className="rounded-4xl"
-            />
-          </div>
-          <Link href={"/"}>
-            <p className="text-xs text-neutral-600">Publicado por:</p>
-            <p className="text-xm">Sergio Junqueira</p>
-            <p className="text-xs">@sjunqueira</p>
-          </Link>
-        </div>
-      </div>
-      <div className="mt-1 mb-80 space-y-4">
-        <p className="mt-1 flex items-center justify-center text-xs text-neutral-600 dark:text-neutral-400">
-          Publicado em:{" "}
-          {new Date(post.publishedAt).toLocaleDateString("pt-BR", {
-            day: "numeric",
-            month: "long",
-            year: "numeric",
-          })}
-        </p>
-        <h1 className="mb-4 bg-gradient-to-br from-gray-200 to-gray-400 bg-clip-text text-5xl font-bold text-transparent">
-          {post.title}
-        </h1>
+
+      <p className="mt-5 mb-5 flex w-2xl items-center justify-center text-xs text-neutral-600">
+        Publicado em:{" "}
+        {new Date(post.publishedAt).toLocaleDateString("pt-BR", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        })}
+      </p>
+
+      <div className="mt-1 mb-10 space-y-4">
+        <h1 className="mb-4 text-5xl font-bold">{post.title}</h1>
         {Array.isArray(post.body) && (
           <PortableText value={post.body} components={portableTextComponents} />
         )}
+      </div>
+      <div className="mt-10 justify-center border-t-2 border-neutral-600 p-5 text-center">
+        Gostou? Me acompanhe em outros lugares também!
+      </div>
+      <footer className="row-start-3 flex flex-wrap items-center justify-center gap-[24px]">
+        <a
+          className="flex items-center gap-2 text-sm hover:underline hover:underline-offset-4"
+          href="https://github.com/sjunqueira"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <GithubLogoIcon size={20} />
+          Github
+        </a>
+        <a
+          className="flex items-center gap-2 text-sm hover:underline hover:underline-offset-4"
+          href="https://www.linkedin.com/in/sergio-junqueira/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <LinkedinLogoIcon size={20} />
+          Linkedin
+        </a>
+      </footer>
+      <div className="mt-8 flex w-full items-center justify-center gap-1 rounded-2xl pt-2 pb-2">
+        <div className="flex w-50 items-center justify-center gap-1 rounded-3xl pt-3 pb-3">
+          <Link className="flex" href={"/"}>
+            <div className="w-15">
+              <Image
+                src={"/sergio.jpg"}
+                alt="Foto de Sergio Junqueira"
+                width={40}
+                height={40}
+                className="rounded-4xl"
+              />
+            </div>
+            <div>
+              <p className="text-xs text-neutral-600">Publicado por:</p>
+              <p className="text-xs">Sergio Junqueira</p>
+              <p className="text-xs">@sjunqueira</p>
+            </div>
+          </Link>
+        </div>
       </div>
     </main>
   );
