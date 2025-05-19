@@ -23,8 +23,8 @@ export default async function IndexPage() {
 
   if (!posts || posts.length === 0) {
     return (
-      <main className="flex flex-col justify-center prose-neutral dark:prose-invert max-w-3xl mx-auto px-4 sm:px-0">
-        <div className="text-center text-lg font-semibold py-20">
+      <main className="prose-neutral dark:prose-invert mx-auto flex max-w-3xl flex-col justify-center px-4 sm:px-0">
+        <div className="py-20 text-center text-lg font-semibold">
           Opa, parece que não tem nada por aqui.
         </div>
       </main>
@@ -32,15 +32,15 @@ export default async function IndexPage() {
   }
 
   return (
-    <main className="flex flex-col mx-auto min-h-screen max-w-3xl p-8">
-      <h1 className="flex text-3xl justify-center items-center font-bold mb-8">
+    <main className="mx-auto flex min-h-[100dvh] max-w-3xl flex-col p-8">
+      <h1 className="mb-8 flex items-center justify-center text-3xl font-bold">
         Bit a Bit
       </h1>
-      <p className="flex justify-center font-light mx-auto mb-8">
+      <p className="mx-auto mb-8 flex justify-center font-light">
         Artigos sobre engenharia de dados, software, cloud e produtividade.
         Compartilho insights práticos, tutoriais e reflexões de carreira.
       </p>
-      <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+      <ul className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
         {posts.map((post) => {
           const postImageUrl = post.image
             ? urlFor(post.image)?.width(1920).height(1080).url()
@@ -48,27 +48,27 @@ export default async function IndexPage() {
 
           return (
             <li
-              className="group rounded-3xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#161616] overflow-hidden hover:shadow-md transition-all p-5"
+              className="group overflow-hidden rounded-3xl border border-gray-200 bg-white p-5 transition-all hover:shadow-md dark:border-gray-800 dark:bg-[#161616]"
               key={post._id}
             >
               {postImageUrl && (
                 <Image
                   src={postImageUrl}
                   alt={post.title}
-                  className="max-w-full w-full rounded-xl justify-center mb-5"
+                  className="mb-5 w-full max-w-full justify-center rounded-xl"
                   width="1920"
                   height="1080"
                 />
               )}
               <Link href={`/blog/${post.slug.current}`}>
-                <p className="flex items-center text-sm text-gray-500 mb-2">
+                <p className="mb-2 flex items-center text-sm text-gray-500">
                   {new Date(post.publishedAt).toLocaleDateString("pt-BR", {
                     day: "numeric",
                     month: "long",
                     year: "numeric",
                   })}
                 </p>
-                <h2 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-500 transition-colors">
+                <h2 className="mb-2 text-xl font-semibold tracking-tight text-gray-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-500">
                   {post.title}
                 </h2>
               </Link>

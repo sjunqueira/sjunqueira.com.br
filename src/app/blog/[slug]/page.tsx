@@ -24,28 +24,28 @@ export default async function PostPage({
   const post = await client.fetch<SanityDocument>(
     POST_QUERY,
     await params,
-    options
+    options,
   );
   const postImageUrl = post.image
     ? urlFor(post.image)?.width(1920).height(1080).url()
     : null;
 
   return (
-    <main className="flex flex-col justify-center prose-neutral dark:prose-invert max-w-3xl mx-auto px-4 sm:px-0 ">
-      <Link href="/blog" className="hover:underline mb-5">
+    <main className="prose-neutral dark:prose-invert mx-auto flex max-w-3xl flex-col justify-center px-4 sm:px-0">
+      <Link href="/blog" className="mb-5 hover:underline">
         ← Ver todos os posts
       </Link>
       {postImageUrl && (
         <Image
           src={postImageUrl}
           alt={post.title}
-          className="max-w-full w-full rounded-xl justify-center"
+          className="w-full max-w-full justify-center rounded-xl"
           width="1920"
           height="1080"
         />
       )}
-      <div className="flex w-full rounded-2xl p-3 gap-3 items-center justify-center">
-        <div className="flex w-60 rounded-3xl p-3 gap-3 items-center justify-center hover:bg-neutral-900">
+      <div className="flex w-full items-center justify-center gap-3 rounded-2xl p-3">
+        <div className="flex w-60 items-center justify-center gap-3 rounded-3xl p-3 hover:bg-neutral-900">
           <div className="w-15">
             <Image
               src={"/sergio.jpg"}
@@ -57,13 +57,13 @@ export default async function PostPage({
           </div>
           <Link href={"/"}>
             <p className="text-xs text-neutral-600">Publicado por:</p>
-            <p className="text-xm ">Sergio Junqueira</p>
-            <p className="text-xs ">@sjunqueira</p>
+            <p className="text-xm">Sergio Junqueira</p>
+            <p className="text-xs">@sjunqueira</p>
           </Link>
         </div>
       </div>
-      <div className="mt-1 space-y-4 mb-80">
-        <p className="flex items-center justify-center text-xs mt-1 text-neutral-600 dark:text-neutral-400 ">
+      <div className="mt-1 mb-80 space-y-4">
+        <p className="mt-1 flex items-center justify-center text-xs text-neutral-600 dark:text-neutral-400">
           Publicado em:{" "}
           {new Date(post.publishedAt).toLocaleDateString("pt-BR", {
             day: "numeric",
@@ -71,7 +71,7 @@ export default async function PostPage({
             year: "numeric",
           })}
         </p>
-        <h1 className="text-5xl font-bold bg-gradient-to-br from-gray-200 to-gray-400 bg-clip-text text-transparent mb-4">
+        <h1 className="mb-4 bg-gradient-to-br from-gray-200 to-gray-400 bg-clip-text text-5xl font-bold text-transparent">
           {post.title}
         </h1>
         {Array.isArray(post.body) && (

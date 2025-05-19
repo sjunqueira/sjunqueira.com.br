@@ -7,22 +7,22 @@ export default function Header() {
   const { theme } = useTheme();
 
   return (
-    <div className="w-full sticky flex top-0 z-50 justify-center ">
+    <div className="sticky top-0 z-50 flex w-full justify-center">
       <div
         className={
           theme === "dark"
-            ? "pointer-events-none fixed top-0 left-0 w-full h-10 dark:bg-gradient-to-b from-neutral-900/50 to-transparent z-40"
-            : "pointer-events-none fixed top-0 left-0 w-full h-10 dark:bg-gradient-to-b from-neutral-400/50 to-transparent z-40"
+            ? "pointer-events-none fixed top-0 left-0 z-40 h-10 w-full from-neutral-900/50 to-transparent dark:bg-gradient-to-b"
+            : "pointer-events-none fixed top-0 left-0 z-40 h-10 w-full from-neutral-400/50 to-transparent dark:bg-gradient-to-b"
         }
       ></div>
       <div
         className={
           theme === "dark"
-            ? "sticky flex m-4 items-center top-0 z-50 w-9/12 rounded-2xl justify-center bg-white dark:bg-neutral-900/70 backdrop-blur-md border-b border-neutral-600 dark:border-neutral-800"
-            : "sticky flex m-4 items-center top-0 z-50 w-9/12 rounded-2xl justify-center bg-white dark:bg-neutral-200/70 backdrop-blur-md border-b border-neutral-100 dark:border-neutral-300"
+            ? "sticky top-0 z-50 m-4 flex w-9/12 items-center justify-center rounded-2xl border-b border-neutral-600 bg-white backdrop-blur-md dark:border-neutral-800 dark:bg-neutral-900/70"
+            : "sticky top-0 z-50 m-4 flex w-9/12 items-center justify-center rounded-2xl border-b border-neutral-100 bg-white backdrop-blur-md dark:border-neutral-300 dark:bg-neutral-200/70"
         }
       >
-        <div className="flex w-full justify-center items-center p-2">
+        <div className="flex w-full items-center justify-center p-2">
           <Link href={"/"}>
             <Image
               src={"/logo.svg"}
@@ -34,7 +34,7 @@ export default function Header() {
           </Link>
         </div>
 
-        <nav className="flex gap-4 text-sm items-center">
+        <nav className="flex items-center gap-4 text-sm">
           {/* <Link href="/" className="hover:underline">
             Home
           </Link>

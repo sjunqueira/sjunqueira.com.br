@@ -5,7 +5,7 @@ import Image from "next/image";
 const Component404 = () => {
   const { theme } = useTheme();
   return (
-    <div className="flex flex-col justify-center items-center h-80% mt-20 gap-10">
+    <div className="h-80% mt-20 flex flex-col items-center justify-center gap-10">
       <Image
         src={"/404.png"}
         alt="error404"
@@ -13,7 +13,7 @@ const Component404 = () => {
         height={200}
         className={theme === "dark" ? "invert-0" : "invert"}
       />
-      <p className="justify-center items-center">
+      <p className="items-center justify-center">
         Opa, parece que não tem nada por aqui
       </p>
     </div>

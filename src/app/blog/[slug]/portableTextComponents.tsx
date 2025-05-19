@@ -32,34 +32,34 @@ export const portableTextComponents = {
   },
   block: {
     h1: ({ children }: any) => (
-      <h1 className="text-5xl font-bold bg-gradient-to-r from-gray-200 to-gray-400 bg-clip-text text-transparent mb-4">
+      <h1 className="mb-4 bg-gradient-to-r from-gray-200 to-gray-400 bg-clip-text text-5xl font-bold text-transparent">
         {children}
       </h1>
     ),
     h2: ({ children }: any) => (
-      <h2 className="text-2xl font-semibold mb-8 text-gray-300 border-b border-b-neutral-800 pb-2">
+      <h2 className="mb-8 border-b border-b-neutral-800 pb-2 text-2xl font-semibold text-gray-300">
         {children}
       </h2>
     ),
     normal: ({ children }: any) => (
-      <p className="text-base leading-relaxed text-neutral-700 dark:text-neutral-300 mb-4">
+      <p className="mb-4 text-base leading-relaxed text-neutral-700 dark:text-neutral-300">
         {children}
       </p>
     ),
     blockquote: ({ children }: any) => (
-      <blockquote className="border-l-4 border-neutral-300 dark:border-neutral-700 pl-4 italic text-neutral-600 dark:text-neutral-400 my-6">
+      <blockquote className="my-6 border-l-4 border-neutral-300 pl-4 text-neutral-600 italic dark:border-neutral-700 dark:text-neutral-400">
         {children}
       </blockquote>
     ),
   },
   list: {
     bullet: ({ children }: any) => (
-      <ul className="list-disc list-inside pl-5 text-neutral-700 dark:text-neutral-300 mb-4">
+      <ul className="mb-4 list-inside list-disc pl-5 text-neutral-700 dark:text-neutral-300">
         {children}
       </ul>
     ),
     number: ({ children }: any) => (
-      <ol className="list-decimal list-inside pl-5 text-neutral-700 dark:text-neutral-300 mb-4">
+      <ol className="mb-4 list-inside list-decimal pl-5 text-neutral-700 dark:text-neutral-300">
         {children}
       </ol>
     ),
@@ -69,7 +69,7 @@ export const portableTextComponents = {
     link: ({ value, children }: any) => (
       <Link
         href={value.href}
-        className="text-blue-600 dark:text-blue-400 hover:underline"
+        className="text-blue-600 hover:underline dark:text-blue-400"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -82,12 +82,12 @@ export const portableTextComponents = {
       </strong>
     ),
     em: ({ children }: any) => (
-      <em className="italic text-neutral-700 dark:text-neutral-300">
+      <em className="text-neutral-700 italic dark:text-neutral-300">
         {children}
       </em>
     ),
     code: ({ children }: any) => (
-      <code className="bg-neutral-100 dark:bg-neutral-800 text-sm px-1 py-0.5 rounded text-red-600 dark:text-red-400">
+      <code className="rounded bg-neutral-100 px-1 py-0.5 text-sm text-red-600 dark:bg-neutral-800 dark:text-red-400">
         {children}
       </code>
     ),

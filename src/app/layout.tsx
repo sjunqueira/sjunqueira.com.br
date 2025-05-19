@@ -21,14 +21,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ThemeProvider>
-      <html lang="en" suppressHydrationWarning>
-        <body className={`${getInter} antialiased`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${getInter} antialiased`}>
+        <ThemeProvider>
           <Header />
           {children}
           <Footer />
-        </body>
-      </html>
-    </ThemeProvider>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }
