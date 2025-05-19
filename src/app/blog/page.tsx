@@ -43,7 +43,7 @@ export default async function IndexPage() {
   }
 
   return (
-    <main className="mx-auto flex min-h-[100dvh] max-w-7xl flex-col px-4">
+    <main className="mx-auto mb-10 flex min-h-[100dvh] max-w-7xl flex-col px-4">
       <h1 className="mb-8 flex items-center justify-center text-3xl font-bold">
         Blog
       </h1>
@@ -91,7 +91,7 @@ export default async function IndexPage() {
 
       {/* GENERAL POSTS */}
       <p className="m-10 text-center text-2xl">Mais antigos</p>
-      <ul className="grid grid-cols-1 gap-2 p-5 md:grid-cols-1">
+      <ul className="grid grid-cols-1 gap-2 md:grid-cols-1">
         {generalPosts.map((post) => {
           return (
             <li
