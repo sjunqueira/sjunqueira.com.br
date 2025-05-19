@@ -3,13 +3,13 @@ import {
   LinkedinLogoIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import TechStack from "./components/stackPage/page";
-import Link from "next/link";
 import { ThemeProvider } from "next-themes";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <ThemeProvider>
-      <div className="grid h-full grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <div className="grid h-full grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
         <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-center">
           {/* <Image
           src="logo.svg"
@@ -18,20 +18,20 @@ export default function Home() {
           height={38}
           priority
           /> */}
-          <div className="max-w-4xl text-sm/6 justify-center text-center mx-auto font-[family-name:var(--font-geist-mono)]">
-            <div className="flex flex-col justify-center mb-2 tracking-[-.01em] h-full gap-10">
-              <p>Opa, o site ainda está em construção. </p>
+          <div className="max-w-4xl text-sm/6 justify-center text-center mx-auto ">
+            <div className="flex flex-col justify-center items-center mb-2 tracking-[-.01em] h-full">
+              <Image
+                src="/sergio.jpg"
+                alt="sjunqueira logo"
+                width={180}
+                height={38}
+                className="flex items-center mask-circle rounded-full justify-center shadow-2xl transition-transform duration-200 ease-in-out hover:scale-105"
+              />
+              <h1 className="text-4xl font-black m-5">Sergio Junqueira</h1>
+              <h2>Engenheiro de Dados e Desenvolvedor Full Stack</h2>
               <p>
-                Inclusive até o que tem no{" "}
-                <Link
-                  href={"/blog"}
-                  className="text-blue-500 underline font-black"
-                >
-                  blog
-                </Link>
-                é teste. De toda forma, pode se conectar comigo pelos links
-                abaixo e também já consegue ver logo aqui abaixo a minha Stack
-                de desenvolvimento
+                Este espaço ainda está evoluindo — mas minha jornada já está em
+                movimento.
               </p>
             </div>
           </div>

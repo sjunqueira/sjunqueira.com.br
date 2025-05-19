@@ -35,7 +35,7 @@ export default function Header() {
         </div>
 
         <nav className="flex gap-4 text-sm items-center">
-          <Link href="/" className="hover:underline">
+          {/* <Link href="/" className="hover:underline">
             Home
           </Link>
           <Link href="/blog" className="hover:underline">
@@ -46,7 +46,7 @@ export default function Header() {
           </Link>
           <Link href="/about" className="hover:underline">
             Sobre
-          </Link>
+          </Link> */}
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="p-2"

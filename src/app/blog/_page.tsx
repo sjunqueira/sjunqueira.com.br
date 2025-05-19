@@ -36,6 +36,10 @@ export default async function IndexPage() {
       <h1 className="flex text-3xl justify-center items-center font-bold mb-8">
         Bit a Bit
       </h1>
+      <p className="flex justify-center font-light mx-auto mb-8">
+        Artigos sobre engenharia de dados, software, cloud e produtividade.
+        Compartilho insights práticos, tutoriais e reflexões de carreira.
+      </p>
       <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
         {posts.map((post) => {
           const postImageUrl = post.image
