@@ -3,7 +3,7 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 
 const Component404 = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
   return (
     <div className="flex flex-col justify-center items-center h-80% mt-20 gap-10">
       <Image
