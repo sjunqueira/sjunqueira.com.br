@@ -17,18 +17,19 @@ export default function Header() {
   return (
     <div className="sticky top-0 z-50 flex w-full justify-center">
       <div
-        className={
-          theme === "dark"
-            ? "pointer-events-none fixed top-0 left-0 z-40 h-10 w-full from-neutral-900/50 to-transparent dark:bg-gradient-to-b"
-            : "pointer-events-none fixed top-0 left-0 z-40 h-10 w-full from-neutral-400/50 to-transparent dark:bg-gradient-to-b"
-        }
+        className="pointer-events-none fixed top-0 left-0 z-40 h-10 w-full from-neutral-900/50 to-transparent dark:bg-gradient-to-b"
+        // {
+        //   theme === "dark"
+        //     ? "pointer-events-none fixed top-0 left-0 z-40 h-10 w-full from-neutral-900/50 to-transparent dark:bg-gradient-to-b"
+        //     : "pointer-events-none fixed top-0 left-0 z-40 h-10 w-full from-neutral-400/50 to-transparent dark:bg-gradient-to-b"
+        // }
       ></div>
       <div
-        className={
+        className={`sticky top-0 z-50 m-4 flex w-9/12 items-center justify-center rounded-2xl backdrop-blur-md ${
           theme === "dark"
-            ? "sticky top-0 z-50 m-4 flex w-9/12 items-center justify-center rounded-2xl border-b border-neutral-600 bg-white backdrop-blur-md dark:border-neutral-800 dark:bg-neutral-900/70"
-            : "sticky top-0 z-50 m-4 flex w-9/12 items-center justify-center rounded-2xl border-b border-neutral-100 bg-white backdrop-blur-md dark:border-neutral-300 dark:bg-neutral-200/70"
-        }
+            ? "border-b border-neutral-800 bg-neutral-900"
+            : "border-b border-neutral-600 bg-white"
+        } `}
       >
         <div className="flex w-full items-center justify-center p-2">
           <Link href={"/"}>
