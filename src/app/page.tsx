@@ -28,9 +28,9 @@ export default function Home() {
                 className="flex items-center mask-circle rounded-full justify-center shadow-2xl transition-transform duration-200 ease-in-out hover:scale-105"
               />
               <h1 className="text-4xl font-black m-5">Sergio Junqueira</h1>
-              <h2>Engenheiro de Dados e Desenvolvedor Full Stack</h2>
+              <h2>Engenheiro de Dados e Dev FullStack</h2>
               <p>
-                Este espaço ainda está evoluindo — mas minha jornada já está em
+                Este espaço ainda está evoluindo, mas a minha jornada já está em
                 movimento.
               </p>
             </div>

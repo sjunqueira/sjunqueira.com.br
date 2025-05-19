@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "./components/Header/page";
 
 import { ThemeProvider } from "./components/themeProvider/themeProvider";
+import Footer from "./components/Footer/page";
 
 const getInter = Inter({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({
         <body className={`${getInter} antialiased`}>
           <Header />
           {children}
+          <Footer />
         </body>
       </html>
     </ThemeProvider>

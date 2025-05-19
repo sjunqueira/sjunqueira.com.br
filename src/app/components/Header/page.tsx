@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Header() {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
 
   return (
     <div className="w-full sticky flex top-0 z-50 justify-center ">
@@ -22,7 +22,7 @@ export default function Header() {
             : "sticky flex m-4 items-center top-0 z-50 w-9/12 rounded-2xl justify-center bg-white dark:bg-neutral-200/70 backdrop-blur-md border-b border-neutral-100 dark:border-neutral-300"
         }
       >
-        <div className="flex w-8/12 justify-between items-center p-2">
+        <div className="flex w-full justify-center items-center p-2">
           <Link href={"/"}>
             <Image
               src={"/logo.svg"}
@@ -47,12 +47,6 @@ export default function Header() {
           <Link href="/about" className="hover:underline">
             Sobre
           </Link> */}
-          <button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="p-2"
-          >
-            {theme === "dark" ? "🌙" : "🌞"}
-          </button>
         </nav>
       </div>
     </div>

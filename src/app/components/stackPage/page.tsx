@@ -2,12 +2,12 @@ import { Icon } from "@iconify/react";
 
 export default function TechStack() {
   return (
-    <section className="mx-auto p-4 md:p-6">
-      <div className="w-full max-w-4xl mx-auto">
+    <section className="p-4 md:p-6">
+      <div className="w-full">
         <h2 className="flex justify-center text-lg font-medium text-gray-400 mb-4">
           Stack Principal
         </h2>
-        <div className="grid justify-center mx-auto flex-wrap gap-2 md:grid-cols-4 sm:grid-cols-2 ">
+        <div className="flex flex-wrap justify-center gap-1">
           <span
             className="flex gap-2 mx-auto px-4 py-2 
             border border-transparent 
