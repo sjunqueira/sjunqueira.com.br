@@ -49,7 +49,7 @@ export default async function PostPage({
         />
       )}
 
-      <p className="mt-5 mb-5 flex w-2xl items-center justify-center text-xs text-neutral-600">
+      <p className="mt-5 mb-5 flex items-center justify-center text-xs text-neutral-600">
         Publicado em:{" "}
         {new Date(post.publishedAt).toLocaleDateString("pt-BR", {
           day: "numeric",
