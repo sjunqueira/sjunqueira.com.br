@@ -22,16 +22,16 @@ export default function Home() {
             <div className="flex flex-col justify-center mb-2 tracking-[-.01em] h-full gap-10">
               <p>Opa, o site ainda está em construção. </p>
               <p>
-                Mas enquanto isso pode ler algumas coisas aqui no{" "}
+                Inclusive até o que tem no{" "}
                 <Link
                   href={"/blog"}
                   className="text-blue-500 underline font-black"
                 >
                   blog
                 </Link>
-                . Ou então se preferir, pode se conectar comigo pelos links
-                abaixo. Ah, e logo aqui abaixo tem também a Stack que eu mais
-                tenho conhecimento
+                é teste. De toda forma, pode se conectar comigo pelos links
+                abaixo e também já consegue ver logo aqui abaixo a minha Stack
+                de desenvolvimento
               </p>
             </div>
           </div>
