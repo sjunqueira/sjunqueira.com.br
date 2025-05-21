@@ -35,7 +35,7 @@ export default async function PostPage({
     : null;
 
   return (
-    <main className="prose-neutral dark:prose-invert mx-auto flex max-w-6xl flex-col justify-center px-4">
+    <main className="prose-neutral dark:prose-invert mx-auto flex max-w-7xl flex-col justify-center px-4">
       <Link href="/blog" className="mb-5 hover:underline">
         ← Ver todos os posts
       </Link>

@@ -63,16 +63,16 @@ export default async function IndexPage() {
               className="group overflow-hidden rounded-3xl transition-all"
               key={post._id}
             >
-              {postImageUrl && (
-                <Image
-                  src={postImageUrl}
-                  alt={post.title}
-                  className="mb-5 w-full max-w-full justify-center rounded-xl"
-                  width="1920"
-                  height="1080"
-                />
-              )}
               <Link href={`/blog/${post.slug.current}`}>
+                {postImageUrl && (
+                  <Image
+                    src={postImageUrl}
+                    alt={post.title}
+                    className="mb-5 w-full max-w-full justify-center rounded-xl"
+                    width="1920"
+                    height="1080"
+                  />
+                )}
                 <p className="mb-2 flex items-center text-sm text-gray-500">
                   {new Date(post.publishedAt).toLocaleDateString("pt-BR", {
                     day: "numeric",
