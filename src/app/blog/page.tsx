@@ -36,7 +36,7 @@ export default async function IndexPage() {
           Compartilho insights práticos, tutoriais e reflexões de carreira.
         </p>
         <div className="py-20 text-center text-lg font-semibold">
-          Ops, parece que nenhum post foi carregado 😔
+          Ops, parece que não tem nenhum post por aqui 😔
         </div>
       </main>
     );

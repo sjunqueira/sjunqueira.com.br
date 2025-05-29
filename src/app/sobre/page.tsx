@@ -32,7 +32,7 @@ export default function Sobre() {
         <a
           href={"/resume.pdf"}
           download="CV-Sergio.pdf"
-          className="inline-flex items-center gap-2 rounded-md bg-black px-4 py-2 text-white transition hover:bg-gray-800"
+          className="b-2 inline-flex items-center gap-2 rounded-md p-3 shadow-2xs"
         >
           <DownloadIcon size={18} />
           Baixar CV (Em inglês)
