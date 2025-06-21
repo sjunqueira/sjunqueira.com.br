@@ -1,5 +1,6 @@
 "use client";
-import { GithubLogo } from "@phosphor-icons/react";
+import { GithubLogoIcon } from "@phosphor-icons/react";
+import { ArrowRightIcon } from "@sanity/icons";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -39,18 +40,31 @@ export default function Projetos() {
             className="rounded-2xl p-6 shadow-lg backdrop-blur-md"
           >
             <h2 className="mb-2 flex items-center gap-2 text-lg font-semibold">
-              <GithubLogo size={20} /> {repo.name}
+              <GithubLogoIcon size={20} /> {repo.name}
             </h2>
             <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-400">
               {repo.description || "Sem descrição"}
             </p>
-            <Link
-              href={repo.html_url}
-              target="_blank"
-              className="text-sm text-blue-600 hover:underline"
-            >
-              Ver no GitHub →
-            </Link>
+            <div className="flex flex-col gap-2">
+              <Link
+                href={repo.html_url}
+                target="_blank"
+                className="flex items-center gap-1 text-sm text-blue-600 hover:underline"
+              >
+                Ver no GitHub
+                <ArrowRightIcon />
+              </Link>
+              {repo.name.toString() === "drconsulta" && (
+                <Link
+                  className="text-md flex items-center gap-1 font-bold text-blue-600 hover:underline"
+                  href={"https://drconsulta-one.vercel.app/"}
+                  target="_blank"
+                >
+                  Testar
+                  <ArrowRightIcon />
+                </Link>
+              )}
+            </div>
           </div>
         ))}
       </div>
