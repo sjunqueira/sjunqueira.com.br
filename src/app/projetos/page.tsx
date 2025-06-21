@@ -54,7 +54,7 @@ export default function Projetos() {
                 Ver no GitHub
                 <ArrowRightIcon />
               </Link>
-              {repo.name.toString() === "drconsulta" && (
+              {repo.name.toString() === "dragenda" && (
                 <Link
                   className="text-md flex items-center gap-1 font-bold text-blue-600 hover:underline"
                   href={"https://drconsulta-one.vercel.app/"}
