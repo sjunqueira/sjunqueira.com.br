@@ -1,23 +1,30 @@
 "use client";
-import { CaretDownIcon } from "@phosphor-icons/react";
+import {
+  List as ListIcon,
+  SunDim,
+  MoonStars,
+  X as CloseIcon,
+  MoonStarsIcon,
+  SunDimIcon,
+} from "@phosphor-icons/react";
 import { useTheme } from "next-themes";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 export default function Header() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
+        panelRef.current &&
+        !panelRef.current.contains(event.target as Node)
       ) {
-        setDropdownOpen(false);
+        setMobileOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -31,89 +38,97 @@ export default function Header() {
   if (!mounted) return null;
 
   return (
-    <div className="sticky top-0 z-50 flex w-full justify-center">
-      <div
-        className={`m-4 flex w-9/12 items-center justify-between rounded-2xl px-5 py-4 shadow-md backdrop-blur-md ${
-          theme === "dark"
-            ? "border border-neutral-800 bg-neutral-900/90"
-            : "border border-neutral-200 bg-white/90"
-        }`}
-      >
-        <Link href="/">
+    <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--background)]/95 backdrop-blur">
+      <div className="mx-auto flex h-16 w-full max-w-5xl items-center justify-between px-5">
+        <Link href="/" className="flex items-center gap-3">
+          <span className="sr-only">Ir para a página inicial</span>
           <Image
             src="/logo.svg"
             alt="<sjunqueira/>"
-            height={15}
-            width={150}
-            className={theme === "dark" ? "invert-0" : "invert"}
+            height={18}
+            width={130}
+            className={theme === "dark" ? "" : "invert"}
+            priority
           />
         </Link>
 
-        <nav className="flex items-center gap-6 text-sm">
-          {/* Dropdown Trigger */}
-          <div ref={dropdownRef} className="relative">
-            <button
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="flex items-center gap-1 rounded-md py-2 transition"
-            >
-              <CaretDownIcon size={20} />
-            </button>
+        <nav className="hidden items-center gap-6 text-sm md:flex">
+          <Link className="transition hover:text-[var(--accent)]" href="/">
+            Início
+          </Link>
+          <Link
+            className="transition hover:text-[var(--accent)]"
+            href="/projetos"
+          >
+            Projetos
+          </Link>
+          {/* <Link className="transition hover:text-[var(--accent)]" href="/blog">
+            Blog
+          </Link> */}
+          <Link className="transition hover:text-[var(--accent)]" href="/sobre">
+            Sobre
+          </Link>
+          {/* <a
+            className="transition hover:text-[var(--accent)]"
+            href="mailto:sergiojunqueira.s@gmail.com"
+          >
+            Contato
+          </a> */}
+        </nav>
 
-            {dropdownOpen && (
-              <div
-                className={`absolute top-full left-0 z-50 mt-2 w-40 -translate-x-20 -translate-y-3 items-center rounded-2xl p-2 text-center shadow-lg ${
-                  theme === "dark"
-                    ? "border-neutral-800 bg-neutral-900/90"
-                    : "border-neutral-200 bg-white/90"
-                }`}
-              >
-                <Link
-                  href="/"
-                  className="block px-2 py-1 text-sm hover:underline"
-                  onClick={() => setDropdownOpen(false)}
-                >
-                  Home
-                </Link>
-                <Link
-                  href="/blog"
-                  className="block px-2 py-1 text-sm hover:underline"
-                  onClick={() => setDropdownOpen(false)}
-                >
-                  Blog
-                </Link>
-                <Link
-                  href="/projetos"
-                  className="block px-2 py-1 text-sm hover:underline"
-                  onClick={() => setDropdownOpen(false)}
-                >
-                  Projetos
-                </Link>
-                <Link
-                  href="/sobre"
-                  className="block px-2 py-1 text-sm hover:underline"
-                  onClick={() => setDropdownOpen(false)}
-                >
-                  Sobre
-                </Link>
-                {/* <Link
-                  href="/servicos"
-                  className="block px-2 py-1 text-sm hover:underline"
-                  onClick={() => setDropdownOpen(false)}
-                >
-                  Serviços
-                </Link> */}
-              </div>
+        <div className="flex items-center gap-3 md:gap-4">
+          <button
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] transition hover:border-[var(--accent)]"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            type="button"
+            aria-label="Alternar tema"
+          >
+            {theme === "dark" ? (
+              <MoonStarsIcon size={16} />
+            ) : (
+              <SunDimIcon size={16} />
             )}
-          </div>
+          </button>
 
           <button
-            className="cursor-pointer"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="flex h-9 w-9 items-center justify-center rounded border border-[var(--border)] md:hidden"
+            type="button"
+            aria-expanded={mobileOpen}
+            aria-label={mobileOpen ? "Fechar navegação" : "Abrir navegação"}
+            onClick={() => setMobileOpen((prev) => !prev)}
           >
-            {theme === "dark" ? "🌙" : "🌞"}
+            {mobileOpen ? <CloseIcon size={18} /> : <ListIcon size={18} />}
           </button>
-        </nav>
+        </div>
       </div>
-    </div>
+
+      {mobileOpen && (
+        <div className="border-t border-[var(--border)]">
+          <div
+            ref={panelRef}
+            className="mx-auto flex w-full max-w-5xl flex-col gap-3 px-5 py-4 text-sm"
+          >
+            <Link href="/" onClick={() => setMobileOpen(false)}>
+              Início
+            </Link>
+            <Link href="/projetos" onClick={() => setMobileOpen(false)}>
+              Projetos
+            </Link>
+            {/* <Link href="/blog" onClick={() => setMobileOpen(false)}>
+              Blog
+            </Link> */}
+            <Link href="/sobre" onClick={() => setMobileOpen(false)}>
+              Sobre
+            </Link>
+            {/* <a
+              href="mailto:sergiojunqueira.s@gmail.com"
+              onClick={() => setMobileOpen(false)}
+            >
+              Contato
+            </a> */}
+          </div>
+        </div>
+      )}
+    </header>
   );
 }

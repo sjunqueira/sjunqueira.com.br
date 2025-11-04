@@ -5,10 +5,8 @@ import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { client } from "@/sanity/client";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  GithubLogoIcon,
-  LinkedinLogoIcon,
-} from "@phosphor-icons/react/dist/ssr";
+import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
+import { notFound } from "next/navigation";
 
 const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]`;
 
@@ -23,90 +21,115 @@ const options = { next: { revalidate: 30 } };
 export default async function PostPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }) {
-  const post = await client.fetch<SanityDocument>(
-    POST_QUERY,
-    await params,
-    options,
-  );
+  const post = await client.fetch<SanityDocument>(POST_QUERY, params, options);
+  if (!post) {
+    notFound();
+  }
   const postImageUrl = post.image
     ? urlFor(post.image)?.width(1920).height(1080).url()
     : null;
 
   return (
-    <main className="prose-neutral dark:prose-invert mx-auto flex max-w-7xl flex-col justify-center px-4">
-      <Link href="/blog" className="mb-5 hover:underline">
-        ← Ver todos os posts
+    <main className="mx-auto flex min-h-[100dvh] w-full max-w-4xl flex-col gap-12 px-5 pt-16 pb-24">
+      <Link
+        href="/blog"
+        className="flex items-center gap-2 text-sm font-semibold text-[var(--accent)] transition hover:text-[var(--accent-strong)]"
+      >
+        <ArrowLeft size={16} />
+        Voltar para o Blog
       </Link>
+
+      <header className="space-y-5">
+        <p className="text-sm tracking-[0.3em] text-[var(--muted)] uppercase">
+          Artigo
+        </p>
+        <h1 className="text-4xl leading-tight font-semibold">{post.title}</h1>
+        <p className="text-sm text-[var(--muted)]">
+          Publicado em{" "}
+          {new Date(post.publishedAt).toLocaleDateString("pt-BR", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          })}
+        </p>
+      </header>
+
       {postImageUrl && (
-        <Image
-          src={postImageUrl}
-          alt={post.title}
-          className="w-full max-w-full justify-center rounded-xl"
-          width="1920"
-          height="1080"
-        />
+        <div className="relative overflow-hidden rounded-[calc(var(--radius-lg)*1.1)]">
+          <div className="relative aspect-[16/9]">
+            <Image
+              src={postImageUrl}
+              alt={post.title}
+              fill
+              sizes="(min-width: 1024px) 800px, 100vw"
+              className="object-cover"
+              priority
+            />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[var(--background)] via-[var(--background)]/50 to-transparent" />
+          </div>
+        </div>
       )}
 
-      <p className="mt-5 mb-5 flex items-center justify-center text-xs text-neutral-600">
-        Publicado em:{" "}
-        {new Date(post.publishedAt).toLocaleDateString("pt-BR", {
-          day: "numeric",
-          month: "long",
-          year: "numeric",
-        })}
-      </p>
-
-      <div className="mt-1 mb-10 space-y-4">
-        <h1 className="mb-4 text-5xl font-bold">{post.title}</h1>
+      <article className="prose prose-neutral prose-headings:font-semibold prose-a:text-[var(--accent)] dark:prose-invert max-w-none text-[var(--foreground)]">
         {Array.isArray(post.body) && (
           <PortableText value={post.body} components={portableTextComponents} />
         )}
-      </div>
-      <div className="mt-10 justify-center border-t-2 border-neutral-600 p-5 text-center">
-        Gostou? Me acompanhe em outros lugares também!
-      </div>
-      <footer className="row-start-3 flex flex-wrap items-center justify-center gap-[24px]">
-        <a
-          className="flex items-center gap-2 text-sm hover:underline hover:underline-offset-4"
-          href="https://github.com/sjunqueira"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <GithubLogoIcon size={20} />
-          Github
-        </a>
-        <a
-          className="flex items-center gap-2 text-sm hover:underline hover:underline-offset-4"
-          href="https://www.linkedin.com/in/sergio-junqueira/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <LinkedinLogoIcon size={20} />
-          Linkedin
-        </a>
-      </footer>
-      <div className="mt-8 flex w-full items-center justify-center gap-1 rounded-2xl pt-2 pb-2">
-        <div className="flex w-50 items-center justify-center gap-1 rounded-3xl pt-3 pb-3">
-          <Link className="flex" href={"/"}>
-            <div className="w-15">
-              <Image
-                src={"/sergio.jpg"}
-                alt="Foto de Sergio Junqueira"
-                width={40}
-                height={40}
-                className="rounded-4xl"
-              />
-            </div>
+      </article>
+
+      <section className="space-y-6 border-t border-[var(--border)] pt-10">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-center gap-4">
+            <Image
+              src="/sergio.jpg"
+              alt="Foto de Sergio Junqueira"
+              width={56}
+              height={56}
+              className="rounded-full object-cover"
+            />
             <div>
-              <p className="text-xs text-neutral-600">Publicado por:</p>
-              <p className="text-xs">Sergio Junqueira</p>
-              <p className="text-xs">@sjunqueira</p>
+              <p className="text-xs tracking-[0.3em] text-[var(--muted)] uppercase">
+                Autor
+              </p>
+              <p className="text-sm font-semibold text-[var(--foreground)]">
+                Sergio Junqueira
+              </p>
+              <p className="text-sm text-[var(--muted)]">
+                Engenharia de dados & software, líder técnico e mentor.
+              </p>
             </div>
-          </Link>
+          </div>
+          <div className="flex gap-4 text-sm font-semibold">
+            <Link
+              className="border-b border-[var(--border)] pb-0.5 transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              href="https://www.linkedin.com/in/sergio-junqueira/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </Link>
+            <Link
+              className="border-b border-[var(--border)] pb-0.5 transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              href="https://github.com/sjunqueira"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </Link>
+          </div>
         </div>
-      </div>
+        <p className="text-sm text-[var(--muted)]">
+          Curtiu o artigo? Vamos continuar a conversa — me envie um e-mail em{" "}
+          <a
+            className="border-b border-[var(--border)] pb-0.5 font-semibold transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            href="mailto:sergiojunqueira.s@gmail.com"
+          >
+            sergiojunqueira.s@gmail.com
+          </a>{" "}
+          ou compartilhe o post com quem precisa desse insight.
+        </p>
+      </section>
     </main>
   );
 }

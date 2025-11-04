@@ -8,13 +8,14 @@ import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "./components/themeProvider/themeProvider";
 import Footer from "./components/Footer/page";
 
-const getInter = Inter({
+const inter = Inter({
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Sergio Junqueira",
-  description: "Engenheiro de Dados e desenvolvedor Full Stack",
+  title: "Sergio Junqueira - Engenharia de Dados & Software",
+  description:
+    "Engenheiro de Dados e desenvolvedor de software focado em plataformas resilientes, produtos digitais e impacto no negócio.",
 };
 
 export default function RootLayout({
@@ -23,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning>
       <head>
         <meta name="color-scheme" content="light dark" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,10 +33,10 @@ export default function RootLayout({
           content="black-translucent"
         />
       </head>
-      <body className={`${getInter} antialiased`}>
+      <body className={`${inter.className} antialiased`}>
         <ThemeProvider>
           <Header />
-          {children}
+          <main className="flex w-full flex-1 justify-center">{children}</main>
           <Footer />
         </ThemeProvider>
         <SpeedInsights />

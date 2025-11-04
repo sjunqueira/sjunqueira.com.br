@@ -14,10 +14,6 @@ const options = { next: { revalidate: 30 } };
 
 export default async function IndexPage() {
   const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
-  // const posts = [];
-
-  const featuredPosts = posts.slice(0, 2);
-  const generalPosts = posts.slice(2, posts.length);
 
   const { projectId, dataset } = client.config();
   const urlFor = (source: SanityImageSource) =>
@@ -27,93 +23,184 @@ export default async function IndexPage() {
 
   if (!posts || posts.length === 0) {
     return (
-      <main className="mx-auto flex min-h-[100dvh] max-w-3xl flex-col px-4">
-        <h1 className="mb-8 flex items-center justify-center text-3xl font-bold">
-          Blog
-        </h1>
-        <p className="mx-auto mb-8 flex justify-center text-center font-light">
-          Artigos sobre engenharia de dados, software, cloud e produtividade.
-          Compartilho insights práticos, tutoriais e reflexões de carreira.
-        </p>
-        <div className="py-20 text-center text-lg font-semibold">
-          Ops, parece que não tem nenhum post por aqui 😔
+      <main className="mx-auto flex min-h-[100dvh] w-full max-w-5xl flex-col gap-10 px-5 pt-16 pb-24">
+        <section className="space-y-4">
+          <p className="text-sm tracking-[0.3em] text-[var(--muted)] uppercase">
+            Blog
+          </p>
+          <h1 className="text-4xl leading-snug font-semibold">
+            Conteúdos sobre engenharia de dados, software e liderança técnica.
+          </h1>
+          <p className="max-w-2xl text-base text-[var(--muted)]">
+            Compartilho aprendizados de projetos, lições de arquitetura e
+            bastidores da transição de dados para produto. Novos artigos em
+            breve.
+          </p>
+        </section>
+
+        <div className="rounded-[var(--radius-lg)] border border-[var(--border)] p-6 text-sm text-[var(--muted)]">
+          Ops, ainda não publiquei nenhum artigo por aqui. Enquanto isso, você
+          pode me encontrar no{" "}
+          <Link
+            className="border-b border-[var(--border)] pb-0.5 font-semibold transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            href="https://www.linkedin.com/in/sergio-junqueira/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </Link>{" "}
+          ou acompanhar projetos em andamento.
         </div>
       </main>
     );
   }
 
+  const [featuredPost, ...restPosts] = posts;
+  const secondaryPosts = restPosts.slice(0, 3);
+  const archivePosts = restPosts.slice(3);
+
+  const formatDate = (value: string) =>
+    new Date(value).toLocaleDateString("pt-BR", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+
+  const featuredImageUrl = featuredPost.image
+    ? urlFor(featuredPost.image)?.width(1600).height(900).fit("crop").url()
+    : null;
+
   return (
-    <main className="mx-auto mb-10 flex min-h-[100dvh] max-w-7xl flex-col px-4">
-      <h1 className="mb-8 flex items-center justify-center text-3xl font-bold">
-        Blog
-      </h1>
-      <p className="mx-auto mb-8 flex justify-center text-center font-light">
-        Artigos sobre engenharia de dados, software, cloud e produtividade.
-        Compartilho insights práticos, tutoriais e reflexões de carreira.
-      </p>
-      <p className="p-2 text-center text-3xl">Mais Recentes</p>
-      <ul className="mt-10 grid grid-cols-1 gap-2 md:grid-cols-2">
-        {featuredPosts.map((post) => {
-          const postImageUrl = post.image
-            ? urlFor(post.image)?.width(1920).height(1080).url()
-            : null;
+    <main className="mx-auto flex min-h-[100dvh] w-full max-w-5xl flex-col gap-16 px-5 pt-16 pb-24">
+      <section className="space-y-4">
+        <p className="text-sm tracking-[0.3em] text-[var(--muted)] uppercase">
+          Blog
+        </p>
+        <h1 className="text-4xl leading-snug font-semibold">
+          Engenharia de dados, software e liderança técnica escritos sem
+          rodeios.
+        </h1>
+        <p className="max-w-2xl text-base text-[var(--muted)]">
+          Cases reais, decisões de arquitetura e aprendizados sobre como levar
+          dados e código até a produção.
+        </p>
+      </section>
 
-          return (
-            <li
-              className="group overflow-hidden rounded-3xl transition-all"
-              key={post._id}
-            >
-              <Link href={`/blog/${post.slug.current}`}>
-                {postImageUrl && (
+      <section className="grid gap-10 border-t border-[var(--border)] pt-12 md:grid-cols-[1.4fr_1fr] md:items-start">
+        <article className="space-y-4">
+          <p className="text-xs tracking-[0.3em] text-[var(--muted)] uppercase">
+            Último artigo
+          </p>
+          <Link
+            href={`/blog/${featuredPost.slug.current}`}
+            className="group flex flex-col gap-4"
+          >
+            <div className="relative overflow-hidden rounded-[calc(var(--radius-lg)*1.1)] bg-[var(--background)]">
+              <div className="relative aspect-[16/9]">
+                {featuredImageUrl ? (
                   <Image
-                    src={postImageUrl}
-                    alt={post.title}
-                    className="mb-5 w-full max-w-full justify-center rounded-xl"
-                    width="1920"
-                    height="1080"
+                    src={featuredImageUrl}
+                    alt={featuredPost.title}
+                    fill
+                    className="object-cover transition duration-500 group-hover:scale-[1.02]"
+                    sizes="(min-width: 768px) 640px, 100vw"
                   />
+                ) : (
+                  <div className="flex h-full items-center justify-center bg-[var(--background)] text-sm text-[var(--muted)]">
+                    Visual sem imagem
+                  </div>
                 )}
-                <p className="mb-2 flex items-center text-sm text-gray-500">
-                  {new Date(post.publishedAt).toLocaleDateString("pt-BR", {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  })}
-                </p>
-                <h2 className="mb-2 text-xl font-semibold tracking-tight transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-500">
-                  {post.title}
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[var(--background)] via-[var(--background)]/75 to-transparent" />
+              </div>
+              <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2 p-5 text-[var(--foreground)]">
+                <span className="text-xs tracking-[0.25em] text-[var(--muted)] uppercase">
+                  {formatDate(featuredPost.publishedAt as string)}
+                </span>
+                <h2 className="text-2xl leading-snug font-semibold">
+                  {featuredPost.title}
                 </h2>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+                <span className="text-sm font-semibold text-[var(--accent)]">
+                  Ler artigo →
+                </span>
+              </div>
+            </div>
+          </Link>
+        </article>
 
-      {/* GENERAL POSTS */}
-      <p className="m-10 text-center text-2xl">Mais antigos</p>
-      <ul className="grid grid-cols-1 gap-2 md:grid-cols-1">
-        {generalPosts.map((post) => {
-          return (
-            <li
-              className="group overflow-hiddenp-5 transition-all"
-              key={post._id}
-            >
-              <Link href={`/blog/${post.slug.current}`}>
-                <p className="mb-2 flex items-center text-sm text-gray-500">
-                  {new Date(post.publishedAt).toLocaleDateString("pt-BR", {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  })}
-                </p>
-                <h2 className="mb-2 text-xl font-semibold tracking-tight transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-500">
-                  {post.title}
-                </h2>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+        {secondaryPosts.length > 0 && (
+          <aside className="space-y-4">
+            <p className="text-xs tracking-[0.3em] text-[var(--muted)] uppercase">
+              Mais recentes
+            </p>
+            <ul className="space-y-5">
+              {secondaryPosts.map((post) => (
+                <li
+                  key={post._id}
+                  className="border-b border-[var(--border)] pb-5 last:border-none last:pb-0"
+                >
+                  <Link
+                    href={`/blog/${post.slug.current}`}
+                    className="group flex flex-col gap-2"
+                  >
+                    <span className="text-xs tracking-[0.25em] text-[var(--muted)] uppercase">
+                      {formatDate(post.publishedAt as string)}
+                    </span>
+                    <h3 className="text-base font-semibold text-[var(--foreground)] transition group-hover:text-[var(--accent)]">
+                      {post.title}
+                    </h3>
+                    <span className="text-xs font-semibold text-[var(--accent)]">
+                      Ler →
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </aside>
+        )}
+      </section>
+
+      {archivePosts.length > 0 && (
+        <section className="space-y-6 border-t border-[var(--border)] pt-12">
+          <div className="flex items-center justify-between">
+            <div className="space-y-2">
+              <p className="text-sm tracking-[0.3em] text-[var(--muted)] uppercase">
+                Arquivo
+              </p>
+              <h2 className="text-3xl font-semibold">Outros artigos</h2>
+            </div>
+            <span className="text-xs tracking-[0.3em] text-[var(--muted)] uppercase">
+              {archivePosts.length} posts
+            </span>
+          </div>
+
+          <ul className="space-y-4">
+            {archivePosts.map((post) => (
+              <li
+                key={post._id}
+                className="flex flex-col justify-between gap-2 border-t border-[var(--border)] pt-4 md:flex-row md:items-center"
+              >
+                <div className="flex flex-col gap-1">
+                  <span className="text-xs tracking-[0.25em] text-[var(--muted)] uppercase">
+                    {formatDate(post.publishedAt as string)}
+                  </span>
+                  <Link
+                    href={`/blog/${post.slug.current}`}
+                    className="text-sm font-semibold text-[var(--foreground)] transition hover:text-[var(--accent)]"
+                  >
+                    {post.title}
+                  </Link>
+                </div>
+                <Link
+                  href={`/blog/${post.slug.current}`}
+                  className="text-xs font-semibold text-[var(--accent)] transition hover:text-[var(--accent-strong)]"
+                >
+                  Ler artigo →
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </main>
   );
 }
