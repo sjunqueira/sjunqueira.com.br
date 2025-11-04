@@ -21,9 +21,14 @@ const options = { next: { revalidate: 30 } };
 export default async function PostPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const post = await client.fetch<SanityDocument>(POST_QUERY, params, options);
+  const resolvedParams = await params;
+  const post = await client.fetch<SanityDocument>(
+    POST_QUERY,
+    resolvedParams,
+    options,
+  );
   if (!post) {
     notFound();
   }
