@@ -1,11 +1,9 @@
 "use client";
 import {
-  List as ListIcon,
-  SunDim,
-  MoonStars,
-  X as CloseIcon,
   MoonStarsIcon,
   SunDimIcon,
+  ListPlusIcon,
+  XIcon,
 } from "@phosphor-icons/react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
@@ -97,7 +95,7 @@ export default function Header() {
             aria-label={mobileOpen ? "Fechar navegação" : "Abrir navegação"}
             onClick={() => setMobileOpen((prev) => !prev)}
           >
-            {mobileOpen ? <CloseIcon size={18} /> : <ListIcon size={18} />}
+            {mobileOpen ? <XIcon size={18} /> : <ListPlusIcon size={18} />}
           </button>
         </div>
       </div>
