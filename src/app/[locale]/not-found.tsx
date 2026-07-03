@@ -1,4 +1,4 @@
-import Component404 from "../components/component404/page";
+import Component404 from "./_components/component404/page";
 
 const Default404 = () => {
   return <Component404 />;

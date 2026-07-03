@@ -87,7 +87,8 @@ export default async function IndexPage({ params }: { params: Promise<{ locale: 
           </p>
         </div>
 
-        <div className="group flex items-center gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3.5 shadow-sm transition focus-within:border-[var(--accent)] focus-within:ring-4 focus-within:ring-[var(--accent)]/10">
+        {/* TODO - Ativar busca */}
+        {/* <div className="group flex items-center gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3.5 shadow-sm transition focus-within:border-[var(--accent)] focus-within:ring-4 focus-within:ring-[var(--accent)]/10">
           <svg
             className="h-4 w-4 shrink-0 text-[var(--muted)]"
             fill="none"
@@ -97,7 +98,7 @@ export default async function IndexPage({ params }: { params: Promise<{ locale: 
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
           </svg>
-        </div>
+        </div> */}
       </section>
 
       {/* Grid das categorias e posts com uma leve linha divisória no topo (opcional, igual sua seção 2) */}

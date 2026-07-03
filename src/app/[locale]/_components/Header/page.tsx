@@ -3,7 +3,7 @@ import { MoonStarsIcon, SunDimIcon, ListPlusIcon, XIcon } from "@phosphor-icons/
 import { useTheme } from "next-themes";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
-import { usePathname, Link, useRouter } from "../../../../i18n/navigation";
+import { usePathname, Link, useRouter } from "../../../../../i18n/navigation";
 
 export default function Header() {
   const { theme, setTheme } = useTheme();

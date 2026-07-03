@@ -1,82 +1,136 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "../../../i18n/navigation";
+import SpotlightSection, { Spotlight } from "./_components/spotlightSection/page";
+import { RevealGroup, RevealItem } from "./_components/motionReveal/page";
+import PipelineDiagram from "./_components/pipelineDiagram/page";
+import StackCategories from "./_components/stackCategories/page";
+import GithubActivity from "./_components/githubActivity/page";
+import TechIconCluster from "./_components/techIconCluster/page";
+
 
 type Stat = { value: string; label: string };
+type StackGroup = { title: string; description: string; tools: string[] };
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "home" });
   const stats = t.raw("stats") as Stat[];
-  const focusAreas = t.raw("focusAreas") as string[];
+  const spotlights = t.raw("spotlights") as Spotlight[];
+  const stackGroups = t.raw("stack.groups") as StackGroup[];
 
-  const actions = [
-    { label: t("ctaProjects"), href: `/${locale}/projetos`, external: false },
-    { label: "Blog", href: `/${locale}/blog`, external: false },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/sergio-junqueira/", external: true },
+  const badges = [
+    { label: t("location"), variant: "default" as const },
+    { label: t("company"), variant: "default" as const },
+    { label: t("availability"), variant: "accent" as const },
   ];
 
   return (
-    <div className="mx-auto flex w-full max-w-5xl flex-col gap-12 px-5 pt-16 pb-16">
+    <div className="mx-auto flex w-full max-w-5xl flex-col gap-16 px-5 pt-16 pb-24">
 
-      <section className="space-y-8">
-        <div className="max-w-2xl space-y-6">
-          <p className="font-mono text-sm text-[var(--accent)]">{t("eyebrow")}</p>
-          <h1 className="text-4xl leading-tight font-extrabold tracking-tight md:text-5xl">
-            {t("title")}
-          </h1>
-          <p className="max-w-xl text-base text-[var(--muted)]">{t("subtitle")}</p>
-        </div>
+      {/* HERO */}
+      <section className="flex flex-col gap-10 sm:flex-row sm:items-center sm:justify-between">
+        <RevealGroup className="max-w-xl space-y-6">
+          <RevealItem>
+            <p className="font-mono text-sm text-[var(--accent)]">{t("eyebrow")}</p>
+          </RevealItem>
 
-        {/* COMMAND BAR — largura total, elemento de assinatura da página */}
-        <div className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border-strong)] bg-[var(--surface)] shadow-sm">
-          <div className="flex items-center gap-2 border-b border-[var(--border)] px-5 py-3">
-            <span className="font-mono text-xs text-[var(--muted)]">⌘K</span>
-            <span className="font-mono text-xs text-[var(--muted)]">ações rápidas</span>
-          </div>
-          <nav className="grid divide-y divide-[var(--border)] sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-            {actions.map((action, i) => (
+          <RevealItem>
+            <div className="flex flex-wrap gap-2">
+              {badges.map((badge) => (
+                <span
+                  key={badge.label}
+                  className={
+                    badge.variant === "accent"
+                      ? "inline-flex items-center gap-2 rounded-full border border-[var(--border-strong)] px-3 py-1.5 font-mono text-xs text-[var(--accent)]"
+                      : "inline-flex items-center gap-2 rounded-full border border-[var(--border-strong)] px-3 py-1.5 font-mono text-xs text-[var(--muted)]"
+                  }
+                >
+                  {badge.variant === "accent" && (
+                    <span className="relative h-2 w-2">
+                      <span className="absolute inset-0 animate-ping rounded-full bg-[var(--accent)] opacity-50" />
+                      <span className="absolute inset-0 rounded-full bg-[var(--accent)]" />
+                    </span>
+                  )}
+                  {badge.label}
+                </span>
+              ))}
+            </div>
+          </RevealItem>
+
+          <RevealItem>
+            <h1 className="text-4xl leading-tight font-extrabold tracking-tight md:text-5xl">
+              {t("title")}
+            </h1>
+          </RevealItem>
+
+          <RevealItem>
+            <p className="text-base text-[var(--muted)]">{t("subtitle")}</p>
+          </RevealItem>
+
+          <RevealItem>
+            <div className="flex flex-wrap items-center gap-5">
               <a
-                key={action.label}
-                href={action.href}
-                target={action.external ? "_blank" : undefined}
-                rel={action.external ? "noopener noreferrer" : undefined}
-                className="group flex items-center justify-between px-5 py-4 font-mono text-sm text-[var(--foreground)] transition hover:bg-[var(--accent)]/5"
+              
+                href="mailto:sergiojunqueira.s@gmail.com"
+                className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-5 py-2.5 font-mono text-sm font-semibold !text-white transition hover:bg-[var(--accent-strong)]"
               >
-                <span className="flex items-center gap-3">
-                  <span className="text-[var(--muted)]">{String(i + 1).padStart(2, "0")}</span>
-                  {action.label}
-                </span>
-                <span className="text-[var(--accent)] opacity-0 transition group-hover:opacity-100">
-                  →
-                </span>
+                {t("ctaEmail")} →
               </a>
-            ))}
-          </nav>
-          <div className="flex flex-wrap gap-x-6 gap-y-1 border-t border-[var(--border)] px-5 py-3 font-mono text-xs text-[var(--muted)]">
-            {stats.map((stat) => (
-              <span key={stat.label}>
-                <span className="text-[var(--accent)]">{stat.value}</span> {stat.label}
-              </span>
-            ))}
-          </div>
-        </div>
+              <a
+                href="/resume.pdf"
+                download
+                className="inline-flex items-center gap-2 rounded-full border border-[var(--border-strong)] px-5 py-2.5 font-mono text-sm font-semibold text-[var(--foreground)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              >
+                {t("ctaResume")} ↓
+              </a>
+              <Link
+                href="/projetos"
+                className="border-b border-[var(--border-strong)] pb-0.5 font-mono text-xs text-[var(--muted)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              >
+                ver projetos
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/sergio-junqueira/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-b border-[var(--border-strong)] pb-0.5 font-mono text-xs text-[var(--muted)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              >
+                linkedin
+              </Link>
+            </div>
+          </RevealItem>
+
+          <RevealItem>
+            <div className="flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs text-[var(--muted)]">
+              {stats.map((stat) => (
+                <span key={stat.label}>
+                  <span className="text-[var(--accent)]">{stat.value}</span> {stat.label}
+                </span>
+              ))}
+            </div>
+          </RevealItem>
+        </RevealGroup>
+
+        <PipelineDiagram />
+        
       </section>
 
-      <section className="space-y-6 border-t border-[var(--border)] pt-10">
+      <section>
+        {spotlights.map((spotlight) => (
+          <SpotlightSection key={spotlight.title} spotlight={spotlight} />
+        ))}
+      </section>
+
+      {/* STACK CATEGORIZADO */}
+      <StackCategories eyebrow={t("stack.eyebrow")} title={t("stack.title")} groups={stackGroups} />
+
+      {/* GITHUB ACTIVITY */}
+      <section className="space-y-6 border-t border-[var(--border)] pt-12">
         <div className="space-y-2">
-          <p className="font-mono text-sm text-[var(--accent)]">{t("focusEyebrow")}</p>
-          <h2 className="text-3xl font-bold">{t("focusTitle")}</h2>
+          <p className="font-mono text-sm text-[var(--accent)]">{t("githubEyebrow")}</p>
+          <h2 className="text-3xl font-bold">{t("githubTitle")}</h2>
         </div>
-        <div className="flex flex-wrap gap-3">
-          {focusAreas.map((area) => (
-            <span
-              key={area}
-              className="rounded-full border border-[var(--border-strong)] px-4 py-2 font-mono text-sm text-[var(--foreground)]"
-            >
-              {area}
-            </span>
-          ))}
-        </div>
+        <GithubActivity username="sjunqueira" />
       </section>
 
     </div>

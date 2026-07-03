@@ -4,13 +4,13 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import "./globals.css";
-import Header from "../components/Header/page";
+import Header from "./_components/Header/page";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
-import { ThemeProvider } from "../components/themeProvider/themeProvider";
-import Footer from "../components/Footer/page";
+import { ThemeProvider } from "./_components/themeProvider/themeProvider";
+import Footer from "./_components/Footer/page";
 import { routing } from "../../../i18n/routing";
-import SiteCanvas from "../components/siteCanvas/page";
+import SiteCanvas from "./_components/siteCanvas/page";
 
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
 const jetBrainsMono = JetBrains_Mono({

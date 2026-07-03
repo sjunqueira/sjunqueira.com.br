@@ -37,7 +37,10 @@
   --term-border: #182238;
   --term-text: #d6def2;
   --success: #58cf94;
+  --background: #0b1220;
+  --color-background: var(--background);
 }
+
 
 
 .brk {
@@ -65,6 +68,15 @@ a {
   color: inherit;
 }
 
+.dbt-logo {
+  filter: brightness(0) saturate(100%)
+    invert(39%) sepia(95%) saturate(1645%)
+    hue-rotate(209deg) brightness(96%) contrast(95%);
+}
+
+.dark .dbt-logo {
+  filter: brightness(0) invert(1);
+}
 ::selection {
   background: var(--accent);
   color: white;

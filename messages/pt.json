@@ -6,57 +6,68 @@
     "blog": "Blog",
     "blogBadge": "em breve"
   },
-  "home": {
-    
-    "eyebrow": "// sergio junqueira",
-    "title": "Dados que sustentam decisões de produto.",
-    "subtitle": "Senior Product Analytics no Grupo Boticário. Transito bem entre engenharia de dados e desenvolvimento — do pipeline no BigQuery ao dashboard que o time de produto abre todo dia.",
-    "ctaEmail": "abrir e-mail",
-    "ctaProjects": "ver projetos",
-    "stats": [
-      { "value": "6+", "label": "anos em dados" },
-      { "value": "7", "label": "empresas atendidas" },
-      { "value": "15", "label": "ferramentas no stack" },
-      { "value": "Disponível", "label": "para novos projetos" }
-    ],
-    "focusEyebrow": "// como posso ajudar",
-    "focusTitle": "Da modelagem ao dashboard que alguém realmente usa",
-    "focusAreas": ["Engenharia de Dados", "Analytics", "Produtos de Educação"],
-    "timelineEyebrow": "// trajetória recente",
-    "timelineTitle": "De pipelines a produtos",
-    "timeline": [
-      { "period": "nov 2025 · atual", "role": "Grupo Boticário — Senior Product Analytics", "text": "Trabalho junto aos times de produto na estruturação de indicadores e nas soluções de dados que os sustentam. Mantenho um DataHub interno usado por analistas e gestores." },
-      { "period": "nov 2024 · nov 2025", "role": "Grupo Boticário — Tech Lead Interino, Dados & Indicadores", "text": "Liderança interina do time de Dados & BI, com foco em governança, padronização de pipelines e refatoração de scripts legados." }
-    ],
-    "gitLogLink": "git log --all →",
-    "projectsEyebrow": "// projetos",
-    "projectsTitle": "Dados e software em movimento",
-    "projectsText": "Casos corporativos nem sempre podem ser publicados, mas compartilho contextos e aprendizados no meu portfólio. Se quiser saber mais sobre engenharia de dados, produtos autorais ou protótipos full stack, a página de projetos está sempre atualizada de acordo com meus repositórios públicos.",
-    "projectsLink": "ver projetos recentes →",
-    "contactTitle": "Quer me contratar ou montar um time?",
-    "contactText": "Posso ajudar a estruturar indicadores de produto, pipelines de dados ou colocar um produto web para rodar. Se fizer sentido trocar uma ideia, me chama por e-mail.",
-    "contactCta": "abrir e-mail →",
-    "stack": {
-    "eyebrow": "Ferramentas & princípios",
+"home": {
+  "ctaResume": "baixar CV",
+  "githubEyebrow": "// atividade",
+  "githubTitle": "O que estou construindo, de verdade",
+  "eyebrow": "// sergio junqueira",
+  "title": "Dados que sustentam decisões de produto.",
+  "subtitle": "Senior Product Analytics no Grupo Boticário. Transito bem entre engenharia de dados e desenvolvimento, do pipeline no BigQuery ao dashboard que o time de produto abre todo dia.",
+  "ctaEmail": "me manda um e-mail",
+  "stats": [
+    { "value": "6+", "label": "anos em dados" },
+    { "value": "7", "label": "empresas atendidas" },
+    { "value": "15", "label": "ferramentas no stack" },
+    { "value": "Disponível", "label": "para novos projetos" }
+  ],
+  "location": "Londrina, Brasil",
+  "company": "Grupo Boticário",
+  "availability": "Disponível para novos projetos",
+  "spotlights": [
+    {
+      "eyebrow": "// onde estou hoje",
+      "icon": "building",
+      "logo": "https://yt3.googleusercontent.com/Kk81fu3grV2T8UZ2P6eWtHyFus5M9uyOsqAHUouTZAnPbIw3cas2iSuu7kMwPYABUtNDldEj=s900-c-k-c0x00ffffff-no-rj",
+      "accent": "muted",
+      "title": "Grupo Boticário",
+      "meta": "Senior Product Analytics · nov 2025 — atual",
+      "description": "Estruturo indicadores e soluções de dados para os times de produto. Mantenho um DataHub interno usado por analistas e gestores.",
+      "tags": ["bigquery", "sql", "powerbi", "javascript"]
+    },
+    {
+      "eyebrow": "// o que construo por fora",
+      "icon": "school",
+      "logo": "https://www.gstatic.com/marketing-cms/assets/images/fc/f4/a754801e43b5a8eb0ee7d8b780f6/yt-external-thumbnail-icon-01.jpg=n-w1920-h1080-fcrop64=1,00000000ffffffff-rw",
+      "accent": "muted",
+      "title": "Canal no YouTube",
+      "meta": "Educação · em produção",
+      "description": "Cursos técnicos de engenharia de dados, do zero ao avançado — ensinando raciocínio, não só ferramenta.",
+      "tags": ["python", "nextjs", "database"],
+      "link": { "label": "conhecer o projeto", "href": "/projetos/youtube", "external": false }
+    }
+  ],
+  "stack": {
+    "eyebrow": "// ferramentas & princípios",
     "title": "Stack de trabalho",
     "description": "Prefiro ferramentas maduras, com boa comunidade e que resolvam o problema de maneira simples. A lista muda ao longo do tempo, mas o critério continua o mesmo.",
     "groups": [
-        { "title": "Plataforma & dados", "description": "Governança, automação e observabilidade para que os dados cheguem limpos e no tempo certo." },
-        { "title": "Software & produto", "description": "APIs, serviços e interfaces web construídos com foco em performance, manutenção simples e entregas frequentes." }
+      { "title": "Plataforma & dados", "description": "Governança, automação e observabilidade para que os dados cheguem limpos e no tempo certo.", "tools": ["sql", "python", "spark", "dbt", "airflow", "bigquery", "gcp", "azure", "powerbi"] },
+      { "title": "Software & produto", "description": "APIs, serviços e interfaces web construídos com foco em performance, manutenção simples e entregas frequentes.", "tools": ["nodejs", "nextjs", "react", "typescript", "postgresql"] }
     ],
     "principlesEyebrow": "Jeito de trabalhar",
     "principlesTitle": "Princípios aplicados no dia a dia",
     "principles": [
-        { "title": "Qualidade como fundação", "text": "Testes, validações e dados confiáveis desde o início. Sem qualidade, escala vira ilusão." },
-        { "title": "Arquitetura pragmática", "text": "Soluções simples, sustentáveis e evolutivas. Complexidade só quando agrega clareza ou impacto." },
-        { "title": "Ritmos sustentáveis", "text": "Ciclos curtos, alinhamento constante e foco em eliminar atrito entre engenharia, produto e negócio." }
+      { "title": "Qualidade como fundação", "text": "Testes, validações e dados confiáveis desde o início. Sem qualidade, escala vira ilusão." },
+      { "title": "Arquitetura pragmática", "text": "Soluções simples, sustentáveis e evolutivas. Complexidade só quando agrega clareza ou impacto." },
+      { "title": "Ritmos sustentáveis", "text": "Ciclos curtos, alinhamento constante e foco em eliminar atrito entre engenharia, produto e negócio." }
     ]
-    }
+  }
+    
   },
   "sobre": {
     "eyebrow": "// sobre mim",
     "title": "Transito bem entre dados e software.",
-    "subtitle": "Background em engenharia de dados e em desenvolvimento (Node.js, Next.js, React, TypeScript). Já trabalhei em consultorias, startups e grandes empresas — hoje ajudo produto a decidir com base em dados de verdade.",
+    "subtitle": "Background em engenharia de dados e em desenvolvimento (Node.js, Next.js, React, TypeScript). Já trabalhei em consultorias, startups e grandes empresas, hoje ajudo produto a decidir com base em dados de verdade.",
     "location": "Baseado em Londrina • PR",
     "roleLine": "Senior Product Analytics, mentor e desenvolvedor",
     "timelineEyebrow": "// git log --all",
@@ -84,16 +95,22 @@
   "projetos": {
     "eyebrow": "// portfólio vivo",
     "title": "Projetos que misturam dados, software e visão de produto.",
-    "subtitle": "Ordenado pelo que está ativo agora — não por data do último commit.",
+    "subtitle": "O que estou construindo e mantendo hoje. Apenas repositórios publicos.",
     "featuredEyebrow": "// em destaque",
     "featuredTitle": "Cases recentes",
     "featured": [
-      { "title": "Edyo", "status": "[ativo]", "context": "projeto autoral", "description": "Plataforma de gestão educacional completa que cuida de matrículas, calendário acadêmico, financeiro e indicadores pedagógicos e IA. Estou desenhando arquitetura, UX e código sozinho, com foco em escolas de pequeno e médio porte.", "note": "MVP em desenvolvimento ativo, aberto a conversas com escolas parceiras para testes.", "muted": false },
-      { "title": "Turing Labs", "status": "[em produção]", "context": "conteúdo educacional", "description": "Série de cursos que estou gravando para acelerar quem quer migrar para engenharia de dados. A proposta mistura arquiteturas reais, exercícios com dados abertos e guia de carreira.", "note": "Lançamento dos primeiros módulos previsto para Q1/2026.", "muted": false },
-      { "title": "Senior Product Analytics — Grupo Boticário", "status": "[atual]", "context": "liderança de dados", "description": "Estruturação de indicadores e soluções de dados para os times de produto. Manutenção de um DataHub interno usado por analistas e gestores do time.", "note": "Projeto interno.", "muted": false },
+      { "title": "Senior Product Analytics no Grupo Boticário", "status": "[atual]", "context": "liderança de dados", "description": "Estruturação de indicadores e soluções de dados para os times de produto. Manutenção de um DataHub interno usado por analistas e gestores do time.", "note": "Emprego formal | Projeto interno.", "muted": false },
+      { 
+        "title": "Sergio Junqueira - Data & Tech", 
+        "status": "[em planejamento]", 
+        "context": "canal no youtube", 
+        "description": "Canal focado em engenharia de dados, analytics e desenvolvimento. A proposta é mostrar o dia a dia da área, resolvendo problemas reais de arquitetura e construindo pipelines sem enrolação.", 
+        "note": "Lançamento dos primeiros vídeos previsto para o Q3/2026.", 
+        "muted": false 
+      },
       { "title": "Dragenda", "status": "[pausado]", "context": "projeto autoral", "description": "Aplicação full stack de gestão de clínicas de saúde. Criada para estudos de React e Next. Apresenta alguns bugs, sem previsão de correção no momento.", "note": "", "muted": true }
     ],
-    "demoLabel": "Ver demo",
+    "demoLabel": "Ver detalhes",
     "codeLabel": "Código",
     "reposEyebrow": "// laboratório aberto",
     "reposTitle": "Repositórios públicos",
@@ -122,6 +139,34 @@
     "backToBlog": "Voltar para o Blog",
     "aboutAuthor": "Sobre o autor",
     "authorDescription": "Escrevo sobre Engenharia de Dados, Software Engineering, arquitetura, algoritmos e carreira, sempre com foco em conteúdo técnico e aplicações reais."
+  },
+  "turingLabs": {
+    "eyebrow": "// projeto: ",
+    "title": "Sergio Junqueira - Data & Tech",
+    "status": "Em planejamento",
+    "date": "Estreia Q3/2026",
+    "subtitle": "Vídeos sobre engenharia de dados e software com foco em como sistemas reais são construídos, escalados e mantidos em produção.",
+    "aboutTitle": "A proposta",
+    "aboutP1": "O canal da Turing Labs é um canal focado em engenharia de software e principalmente engenharia de dados na prática, indo além de tutoriais superficiais. A ideia é mostrar como sistemas reais são projetados, desde decisões de arquitetura até a implementação e trade-offs técnicos.",
+    "aboutP2": "O conteúdo é voltado para quem quer entender engenharia de verdade: como pipelines são estruturados, como APIs são desenhadas para escala, como bancos de dados se comportam sob carga e quais decisões fazem diferença em produção. Enfim, basicamente é isso.",
+    "topicsTitle": "O que esperar",
+    "topics": [
+      {
+        "title": "Data Engineering",
+        "description": "Modelagem de dados, pipelines, ETL/ELT, BigQuery, orquestração e arquitetura de dados em produção."
+      },
+      {
+        "title": "Software Engineering",
+        "description": "Construção de APIs, sistemas back-end, TypeScript, Node.js, arquitetura limpa e decisões de design de software."
+      },
+      {
+        "title": "Sistemas em Produção",
+        "description": "Como aplicações reais funcionam: escalabilidade, performance, observabilidade, filas, cache e bancos de dados."
+      }
+    ],
+    "ctaTitle": "Acompanhe o projeto",
+    "ctaText": "Os primeiros vídeos estão sendo planejados. Se quiser acompanhar ou sugerir temas, entre em contato.",
+    "ctaLink": "Mande um e-mail"
   }
-
 }
+
