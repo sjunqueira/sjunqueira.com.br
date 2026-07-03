@@ -1,0 +1,126 @@
+{
+  "nav": {
+    "home": "Home",
+    "projetos": "Projects",
+    "sobre": "About me",
+    "blog": "Blog",
+    "blogBadge": "coming soon"
+  },
+  "home": {
+    "eyebrow": "// sergio junqueira",
+    "title": "Data that backs product decisions.",
+    "subtitle": "Senior Product Analytics at Grupo Boticário. I move comfortably between data engineering and development — from the pipeline in BigQuery to the dashboard the product team opens every day.",
+    "ctaEmail": "send an email",
+    "ctaProjects": "view projects",
+    "stats": [
+      { "value": "6+", "label": "years in data" },
+      { "value": "7", "label": "companies served" },
+      { "value": "15", "label": "tools in the stack" },
+      { "value": "Available", "label": "for new projects" }
+    ],
+    "focusEyebrow": "// how I can help",
+    "focusTitle": "From modeling to a dashboard people actually use",
+    "focusAreas": ["Data Engineering", "Analytics", "Educational Products"],
+
+    "timelineEyebrow": "// recent trajectory",
+    "timelineTitle": "From pipelines to products",
+    "timeline": [
+      { "period": "Nov 2025 · present", "role": "Grupo Boticário — Senior Product Analytics", "text": "I work alongside product teams to structure metrics and the data solutions behind them. I maintain an internal DataHub used by analysts and managers." },
+      { "period": "Nov 2024 · Nov 2025", "role": "Grupo Boticário — Interim Tech Lead, Data & Metrics", "text": "Interim leadership of the Data & BI team, focused on governance, pipeline standardization and refactoring legacy scripts." }
+    ],
+    "gitLogLink": "git log --all →",
+    "projectsEyebrow": "// projects",
+    "projectsTitle": "Data and software in motion",
+    "projectsText": "Not every corporate case can be shared publicly, but here's a look at what I've built and how I can help your team. The projects page covers data leadership, personal products and full-stack prototypes.",
+    "projectsLink": "view recent projects →",
+    "contactTitle": "Want to hire me or build a team?",
+    "contactText": "I can help structure product metrics, data pipelines, or ship a web product. If it makes sense to talk, reach out by email.",
+    "contactCta": "send an email →",
+    "stack": {
+    "eyebrow": "Tools & principles",
+    "title": "Working stack",
+    "description": "I prefer mature tools with a strong community that solve the problem in a simple way. The list changes over time, but the criteria stay the same.",
+    "groups": [
+        { "title": "Platform & data", "description": "Governance, automation and observability so data arrives clean and on time." },
+        { "title": "Software & product", "description": "APIs, services and web interfaces built with a focus on performance, simple maintenance and frequent delivery." }
+    ],
+    "principlesEyebrow": "How I work",
+    "principlesTitle": "Principles applied day to day",
+    "principles": [
+        { "title": "Quality as a foundation", "text": "Tests, validation and reliable data from the start. Without quality, scale is an illusion." },
+        { "title": "Pragmatic architecture", "text": "Simple, sustainable, evolvable solutions. Complexity only when it adds clarity or impact." },
+        { "title": "Sustainable pace", "text": "Short cycles, constant alignment, and a focus on removing friction between engineering, product and business." }
+    ]
+    }
+  },
+  "sobre": {
+    "eyebrow": "// about me",
+    "title": "I move comfortably between data and software.",
+    "subtitle": "Background in data engineering and development (Node.js, Next.js, React, TypeScript). I've worked in consultancies, startups and large companies — today I help product teams decide based on real data.",
+    "location": "Based in Londrina, Brazil",
+    "roleLine": "Senior Product Analytics, mentor and developer",
+    "timelineEyebrow": "// git log --all",
+    "timelineTitle": "Full history",
+    "timeline": [
+      { "period": "Nov 2025 · present", "company": "Grupo Boticário", "role": "Senior Product Analytics", "text": "I work alongside product teams to structure metrics and the data solutions behind them. I maintain an internal DataHub used by analysts and managers.", "highlights": ["Stack: BigQuery, SQL, JavaScript, Power BI"] },
+      { "period": "Nov 2024 · Nov 2025", "company": "Grupo Boticário", "role": "Interim Tech Lead — Data & Metrics", "text": "Interim leadership of the Data & BI team, focused on data governance, pipeline standardization and refactoring legacy scripts.", "highlights": [] },
+      { "period": "Jan 2024 · Nov 2024", "company": "PagoNxt (Santander Group)", "role": "Analytics Engineer", "text": "End-to-end development of a marketing campaign dashboard for a product with $60M ARR.", "highlights": ["Data quality MVP for the platform core using Great Expectations", "Stack: SQL, Python, Spark, Databricks, Power BI"] },
+      { "period": "Oct 2021 · Oct 2023", "company": "Alura Para Empresas", "role": "Data Analyst — B2B Edtech", "text": "Go-to data resource for the sales team, teaching them to read their own numbers. Redesigned reporting for the company's largest client, contributing to a multi-year renewal.", "highlights": ["ROI study that prevented churn and drove a 20% upsell"] },
+      { "period": "2017 · 2023", "company": "Torce Aí, Anymarket, aiqfome, Bartô", "role": "Data & full stack, several roles", "text": "Co-founder and Data Lead at my own startup, data analyst and customer success at Anymarket, key account at aiqfome, and co-founder of an early-stage startup.", "highlights": [] }
+    ],
+    "freelanceNote": "Freelancing since Oct/2019: building and maintaining landing pages and SPAs in Next.js, Node and React, alongside the roles above.",
+    "principlesEyebrow": "// how I see the work",
+    "principlesTitle": "Principles",
+    "principles": [
+      { "title": "Data as a product", "text": "Data has an owner, a contract and a purpose. Governance is a consequence of good practices, not bureaucracy." },
+      { "title": "Software that solves things", "text": "Clean code is a means, not an end. The goal is to ship useful, measurable, sustainable solutions." },
+      { "title": "Teams that learn", "text": "Healthy environments prioritize clarity, autonomy and continuous learning." }
+    ],
+    "stackDataLabel": "// stack — data",
+    "stackSoftwareLabel": "// stack — software",
+    "contactTitle": "Want to talk about career or mentorship?",
+    "contactText": "I'm open to talking about product data, data engineering or career transitions. Send me a message and let's set up a remote coffee chat."
+  },
+  "projetos": {
+    "eyebrow": "// live portfolio",
+    "title": "Projects that mix data, software and product thinking.",
+    "subtitle": "Ordered by what's active right now — not by last commit date.",
+    "featuredEyebrow": "// featured",
+    "featuredTitle": "Recent cases",
+    "featured": [
+      { "title": "Edyo", "status": "[active]", "context": "personal project", "description": "A complete school management platform covering enrollment, academic calendar, finance and pedagogical/AI indicators. I'm designing the architecture, UX and code on my own, focused on small and mid-sized schools.", "note": "MVP in active development, open to conversations with partner schools for testing.", "muted": false },
+      { "title": "Turing Labs", "status": "[in production]", "context": "educational content", "description": "A course series I'm recording to help people move into data engineering. Real architectures, exercises with open data, and a career guide.", "note": "First modules launching in Q1 2026.", "muted": false },
+      { "title": "Senior Product Analytics — Grupo Boticário", "status": "[current]", "context": "data leadership", "description": "Structuring metrics and data solutions for product teams. Maintaining an internal DataHub used by analysts and managers.", "note": "Internal project.", "muted": false },
+      { "title": "Dragenda", "status": "[paused]", "context": "personal project", "description": "A full-stack clinic management app. Built as a React and Next study project. Has a few bugs, no timeline for fixes.", "note": "", "muted": true }
+    ],
+    "demoLabel": "View demo",
+    "codeLabel": "Code",
+    "reposEyebrow": "// open lab",
+    "reposTitle": "Public repositories",
+    "reposSubtitle": "Proofs of concept, refactors and tools I keep open.",
+    "reposFallback": "Project in progress.",
+    "reposStackMista": "mixed stack",
+    "reposLink": "open on GitHub →",
+    "contactTitle": "Got a challenge worth thinking through together?",
+    "contactText": "I enjoy problems that need a systems view: consistent data, reliable software and aligned people."
+  },
+  "blog": {
+    "eyebrow": "// blog",
+    "title": "I write about data, software and product.",
+    "subtitle": "Short posts, focused on learning and applicability. No fluff, no clickbait.",
+    "ctaLabel": "view recent posts →",
+    "ctaLink": "/blog",
+    "articlesCount": "articles",
+    "latestUpdates": "Latest Updates",
+    "description": "All the latest articles on algorithms, data structures, and tech careers, straight from the source.",
+    "categories": "Categories",
+    "allArticles": "All Articles",
+    "noArticlesYet": "No articles published yet."
+  },
+  "article": {
+    "eyebrow": "// article",
+    "backToBlog": "Back to Blog",
+    "aboutAuthor": "About the author",
+    "authorDescription": "I write about Data Engineering, Software Engineering, architecture, algorithms, and career, always focusing on technical content and real-world applications."
+  }
+}

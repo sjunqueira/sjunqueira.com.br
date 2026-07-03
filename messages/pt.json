@@ -1,0 +1,127 @@
+{
+  "nav": {
+    "home": "Início",
+    "projetos": "Projetos",
+    "sobre": "Sobre mim",
+    "blog": "Blog",
+    "blogBadge": "em breve"
+  },
+  "home": {
+    
+    "eyebrow": "// sergio junqueira",
+    "title": "Dados que sustentam decisões de produto.",
+    "subtitle": "Senior Product Analytics no Grupo Boticário. Transito bem entre engenharia de dados e desenvolvimento — do pipeline no BigQuery ao dashboard que o time de produto abre todo dia.",
+    "ctaEmail": "abrir e-mail",
+    "ctaProjects": "ver projetos",
+    "stats": [
+      { "value": "6+", "label": "anos em dados" },
+      { "value": "7", "label": "empresas atendidas" },
+      { "value": "15", "label": "ferramentas no stack" },
+      { "value": "Disponível", "label": "para novos projetos" }
+    ],
+    "focusEyebrow": "// como posso ajudar",
+    "focusTitle": "Da modelagem ao dashboard que alguém realmente usa",
+    "focusAreas": ["Engenharia de Dados", "Analytics", "Produtos de Educação"],
+    "timelineEyebrow": "// trajetória recente",
+    "timelineTitle": "De pipelines a produtos",
+    "timeline": [
+      { "period": "nov 2025 · atual", "role": "Grupo Boticário — Senior Product Analytics", "text": "Trabalho junto aos times de produto na estruturação de indicadores e nas soluções de dados que os sustentam. Mantenho um DataHub interno usado por analistas e gestores." },
+      { "period": "nov 2024 · nov 2025", "role": "Grupo Boticário — Tech Lead Interino, Dados & Indicadores", "text": "Liderança interina do time de Dados & BI, com foco em governança, padronização de pipelines e refatoração de scripts legados." }
+    ],
+    "gitLogLink": "git log --all →",
+    "projectsEyebrow": "// projetos",
+    "projectsTitle": "Dados e software em movimento",
+    "projectsText": "Casos corporativos nem sempre podem ser publicados, mas compartilho contextos e aprendizados no meu portfólio. Se quiser saber mais sobre engenharia de dados, produtos autorais ou protótipos full stack, a página de projetos está sempre atualizada de acordo com meus repositórios públicos.",
+    "projectsLink": "ver projetos recentes →",
+    "contactTitle": "Quer me contratar ou montar um time?",
+    "contactText": "Posso ajudar a estruturar indicadores de produto, pipelines de dados ou colocar um produto web para rodar. Se fizer sentido trocar uma ideia, me chama por e-mail.",
+    "contactCta": "abrir e-mail →",
+    "stack": {
+    "eyebrow": "Ferramentas & princípios",
+    "title": "Stack de trabalho",
+    "description": "Prefiro ferramentas maduras, com boa comunidade e que resolvam o problema de maneira simples. A lista muda ao longo do tempo, mas o critério continua o mesmo.",
+    "groups": [
+        { "title": "Plataforma & dados", "description": "Governança, automação e observabilidade para que os dados cheguem limpos e no tempo certo." },
+        { "title": "Software & produto", "description": "APIs, serviços e interfaces web construídos com foco em performance, manutenção simples e entregas frequentes." }
+    ],
+    "principlesEyebrow": "Jeito de trabalhar",
+    "principlesTitle": "Princípios aplicados no dia a dia",
+    "principles": [
+        { "title": "Qualidade como fundação", "text": "Testes, validações e dados confiáveis desde o início. Sem qualidade, escala vira ilusão." },
+        { "title": "Arquitetura pragmática", "text": "Soluções simples, sustentáveis e evolutivas. Complexidade só quando agrega clareza ou impacto." },
+        { "title": "Ritmos sustentáveis", "text": "Ciclos curtos, alinhamento constante e foco em eliminar atrito entre engenharia, produto e negócio." }
+    ]
+    }
+  },
+  "sobre": {
+    "eyebrow": "// sobre mim",
+    "title": "Transito bem entre dados e software.",
+    "subtitle": "Background em engenharia de dados e em desenvolvimento (Node.js, Next.js, React, TypeScript). Já trabalhei em consultorias, startups e grandes empresas — hoje ajudo produto a decidir com base em dados de verdade.",
+    "location": "Baseado em Londrina • PR",
+    "roleLine": "Senior Product Analytics, mentor e desenvolvedor",
+    "timelineEyebrow": "// git log --all",
+    "timelineTitle": "Histórico completo",
+    "timeline": [
+      { "period": "nov 2025 · atual", "company": "Grupo Boticário", "role": "Senior Product Analytics", "text": "Trabalho junto aos times de produto na estruturação de indicadores e nas soluções de dados que os sustentam. Mantenho um DataHub interno usado por analistas e gestores do time.", "highlights": ["Stack: BigQuery, SQL, JavaScript, Power BI"] },
+      { "period": "nov 2024 · nov 2025", "company": "Grupo Boticário", "role": "Tech Lead Interino — Dados & Indicadores", "text": "Liderança interina do time de Dados & BI, com foco em governança de dados, padronização de pipelines e refatoração de scripts legados.", "highlights": [] },
+      { "period": "jan 2024 · nov 2024", "company": "PagoNxt (Santander Group)", "role": "Analytics Engineer", "text": "Desenvolvimento de ponta a ponta de um dashboard de campanhas de marketing para um produto com 60 milhões de ARR.", "highlights": ["MVP de data quality do core da plataforma com Great Expectations", "Stack: SQL, Python, Spark, Databricks, Power BI"] },
+      { "period": "out 2021 · out 2023", "company": "Alura Para Empresas", "role": "Data Analyst — B2B Edtech", "text": "Referência de dados no time comercial, ensinando o time a ler os próprios números. Reformulei o reporte de resultados para o maior cliente da empresa, contribuindo para uma renovação multi-year.", "highlights": ["Estudo de ROI que evitou churn e gerou upsell de 20%"] },
+      { "period": "2017 · 2023", "company": "Torce Aí, Anymarket, aiqfome, Bartô", "role": "Data & FullStack, diversas frentes", "text": "Sócio e Data Lead em startup própria, analista de dados e customer success na Anymarket, key account na aiqfome, e co-fundação de uma startup em estágio inicial.", "highlights": [] }
+    ],
+    "freelanceNote": "Autônomo desde out/2019: desenvolvimento e manutenção de landing pages e SPAs em Next.js, Node e React, em paralelo às posições acima.",
+    "principlesEyebrow": "// como enxergo o trabalho",
+    "principlesTitle": "Princípios",
+    "principles": [
+      { "title": "Dados como produto", "text": "Dados têm dono, contrato e propósito. Governança é consequência de boas práticas, não de burocracia." },
+      { "title": "Software que resolve", "text": "Código limpo é meio, não fim. O objetivo é entregar soluções úteis, medíveis e sustentáveis." },
+      { "title": "Times que aprendem", "text": "Ambientes saudáveis priorizam clareza, autonomia e aprendizado contínuo." }
+    ],
+    "stackDataLabel": "// stack — dados",
+    "stackSoftwareLabel": "// stack — software",
+    "contactTitle": "Quer um papo de carreira ou mentoria?",
+    "contactText": "Estou aberto para conversar sobre dados de produto, engenharia de dados ou transição de carreira. Me manda uma mensagem e marcamos um café remoto."
+  },
+  "projetos": {
+    "eyebrow": "// portfólio vivo",
+    "title": "Projetos que misturam dados, software e visão de produto.",
+    "subtitle": "Ordenado pelo que está ativo agora — não por data do último commit.",
+    "featuredEyebrow": "// em destaque",
+    "featuredTitle": "Cases recentes",
+    "featured": [
+      { "title": "Edyo", "status": "[ativo]", "context": "projeto autoral", "description": "Plataforma de gestão educacional completa que cuida de matrículas, calendário acadêmico, financeiro e indicadores pedagógicos e IA. Estou desenhando arquitetura, UX e código sozinho, com foco em escolas de pequeno e médio porte.", "note": "MVP em desenvolvimento ativo, aberto a conversas com escolas parceiras para testes.", "muted": false },
+      { "title": "Turing Labs", "status": "[em produção]", "context": "conteúdo educacional", "description": "Série de cursos que estou gravando para acelerar quem quer migrar para engenharia de dados. A proposta mistura arquiteturas reais, exercícios com dados abertos e guia de carreira.", "note": "Lançamento dos primeiros módulos previsto para Q1/2026.", "muted": false },
+      { "title": "Senior Product Analytics — Grupo Boticário", "status": "[atual]", "context": "liderança de dados", "description": "Estruturação de indicadores e soluções de dados para os times de produto. Manutenção de um DataHub interno usado por analistas e gestores do time.", "note": "Projeto interno.", "muted": false },
+      { "title": "Dragenda", "status": "[pausado]", "context": "projeto autoral", "description": "Aplicação full stack de gestão de clínicas de saúde. Criada para estudos de React e Next. Apresenta alguns bugs, sem previsão de correção no momento.", "note": "", "muted": true }
+    ],
+    "demoLabel": "Ver demo",
+    "codeLabel": "Código",
+    "reposEyebrow": "// laboratório aberto",
+    "reposTitle": "Repositórios públicos",
+    "reposSubtitle": "Provas de conceito, refatorações e ferramentas que mantenho abertas.",
+    "reposFallback": "Projeto em evolução.",
+    "reposStackMista": "stack mista",
+    "reposLink": "abrir no GitHub →",
+    "contactTitle": "Tem um desafio pra pensar junto?",
+    "contactText": "Curto desafios que exigem olhar sistêmico: dados consistentes, software confiável e pessoas alinhadas."
+  },
+  "blog": {
+    "eyebrow": "// blog",
+    "title": "Escrevo sobre dados, software e produto.",
+    "subtitle": "Posts curtos, com foco em aprendizado e aplicabilidade. Sem enrolação, sem clickbait.",
+    "ctaLabel": "ver posts recentes →",
+    "ctaLink": "/blog",
+    "articlesCount": "artigos",
+    "latestUpdates": "Últimas atualizações",
+    "description": "Todos os artigos mais recentes sobre algoritmos, estruturas de dados e carreira tech, direto da fonte.",
+    "categories": "Categorias",
+    "allArticles": "Todos os artigos",
+    "noArticlesYet": "Nenhum artigo publicado ainda."
+  },
+  "article": {
+    "eyebrow": "// artigo",
+    "backToBlog": "Voltar para o Blog",
+    "aboutAuthor": "Sobre o autor",
+    "authorDescription": "Escrevo sobre Engenharia de Dados, Software Engineering, arquitetura, algoritmos e carreira, sempre com foco em conteúdo técnico e aplicações reais."
+  }
+
+}

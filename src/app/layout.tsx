@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Header from "./components/Header/page";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/next";
+import { Inter, JetBrains_Mono, Manrope } from "next/font/google";
 
-import { ThemeProvider } from "./components/themeProvider/themeProvider";
-import Footer from "./components/Footer/page";
-
-const inter = Inter({
+const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
+const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
 });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Sergio Junqueira - Engenharia de Dados & Software",
@@ -20,27 +16,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+  params,
+}: {
   children: React.ReactNode;
-}>) {
+  params: { locale?: string };
+}) {
+  const locale = params.locale ?? "pt";
+
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
-      <head>
-        <meta name="color-scheme" content="light dark" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta
-          name="apple-mobile-web-app-status-bar-style"
-          content="black-translucent"
-        />
-      </head>
-      <body className={`${inter.className} antialiased`}>
-        <ThemeProvider>
-          <Header />
-          <main className="flex w-full flex-1 justify-center">{children}</main>
-          <Footer />
-        </ThemeProvider>
-        <SpeedInsights />
-        <Analytics />
+    <html
+      lang={locale}
+      suppressHydrationWarning
+      className={`${manrope.variable} ${jetBrainsMono.variable}`}
+    >
+      <body className={`${manrope.className} ${inter.className} antialiased`}>
+        {children}
       </body>
     </html>
   );

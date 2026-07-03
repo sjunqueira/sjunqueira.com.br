@@ -1,27 +1,23 @@
 "use client";
-import {
-  MoonStarsIcon,
-  SunDimIcon,
-  ListPlusIcon,
-  XIcon,
-} from "@phosphor-icons/react";
+import { MoonStarsIcon, SunDimIcon, ListPlusIcon, XIcon } from "@phosphor-icons/react";
 import { useTheme } from "next-themes";
-import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import { usePathname, Link, useRouter } from "../../../../i18n/navigation";
 
 export default function Header() {
   const { theme, setTheme } = useTheme();
+  const t = useTranslations("nav");
+  const locale = useLocale();
+  const pathname = usePathname();
+  const router = useRouter();
   const [mounted, setMounted] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (
-        panelRef.current &&
-        !panelRef.current.contains(event.target as Node)
-      ) {
+      if (panelRef.current && !panelRef.current.contains(event.target as Node)) {
         setMobileOpen(false);
       }
     }
@@ -29,70 +25,76 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => setMounted(true), []);
 
   if (!mounted) return null;
+
+  function switchLocale(next: "pt" | "en") {
+    const segments = pathname.split("/").filter(Boolean);
+    const hasLocalePrefix = segments[0] === "pt" || segments[0] === "en";
+    if (hasLocalePrefix) {
+      segments.shift();
+    }
+
+    const normalizedPath = `/${segments.join("/")}`.replace(/\/\/$/, "/");
+    const targetPath = normalizedPath === "" ? "/" : normalizedPath;
+    router.replace(targetPath, { locale: next });
+  }
 
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--background)]/95 backdrop-blur">
       <div className="mx-auto flex h-16 w-full max-w-5xl items-center justify-between px-5">
         <Link href="/" className="flex items-center gap-3">
-          <span className="sr-only">Ir para a página inicial</span>
-          <Image
-            src="/logo.svg"
-            alt="<sjunqueira/>"
-            height={18}
-            width={130}
-            className={theme === "dark" ? "" : "invert"}
-            priority
-          />
+          <div className="logo mono">
+            <span className="brk">&lt;</span> sjunqueira <span className="brk">/&gt;</span>
+          </div>
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm md:flex">
-          <Link className="transition hover:text-[var(--accent)]" href="/">
-            Início
-          </Link>
-          <Link
-            className="transition hover:text-[var(--accent)]"
-            href="/projetos"
-          >
-            Projetos
-          </Link>
-          {/* <Link className="transition hover:text-[var(--accent)]" href="/blog">
-            Blog
-          </Link> */}
-          <Link className="transition hover:text-[var(--accent)]" href="/sobre">
-            Sobre
-          </Link>
-          {/* <a
-            className="transition hover:text-[var(--accent)]"
-            href="mailto:sergiojunqueira.s@gmail.com"
-          >
-            Contato
-          </a> */}
+          <Link className="transition hover:text-[var(--accent)]" href="/">{t("home")}</Link>
+          <Link className="transition hover:text-[var(--accent)]" href="/projetos">{t("projetos")}</Link>
+          <Link className="transition hover:text-[var(--accent)]" href="/sobre">{t("sobre")}</Link>
+          <Link className="transition hover:text-[var(--accent)]" href="/blog">{t("blog")}</Link>
+
+          
         </nav>
 
-        <div className="flex items-center gap-3 md:gap-4">
+        <div className="flex items-center gap-2 md:gap-3">
+          <div className="flex items-center rounded-full border border-[var(--border)] p-0.5 font-mono text-xs">
+            <button
+              type="button"
+              onClick={() => switchLocale("pt")}
+              className={`rounded-full px-2.5 py-1 transition ${
+                locale === "pt" ? "bg-[var(--accent)] text-white" : "text-[var(--muted)] hover:text-[var(--foreground)]"
+              }`}
+            >
+              PT
+            </button>
+            <button
+              type="button"
+              onClick={() => switchLocale("en")}
+              className={`rounded-full px-2.5 py-1 transition ${
+                locale === "en" ? "bg-[var(--accent)] text-white" : "text-[var(--muted)] hover:text-[var(--foreground)]"
+              }`}
+            >
+              EN
+            </button>
+          </div>
+
           <button
             className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] transition hover:border-[var(--accent)]"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             type="button"
-            aria-label="Alternar tema"
+            aria-label="Toggle theme"
           >
-            {theme === "dark" ? (
-              <MoonStarsIcon size={16} />
-            ) : (
-              <SunDimIcon size={16} />
-            )}
+            {theme === "dark" ? <MoonStarsIcon size={16} /> : <SunDimIcon size={16} />}
           </button>
 
           <button
             className="flex h-9 w-9 items-center justify-center rounded border border-[var(--border)] md:hidden"
             type="button"
             aria-expanded={mobileOpen}
-            aria-label={mobileOpen ? "Fechar navegação" : "Abrir navegação"}
+            aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
             onClick={() => setMobileOpen((prev) => !prev)}
           >
             {mobileOpen ? <XIcon size={18} /> : <ListPlusIcon size={18} />}
@@ -102,28 +104,16 @@ export default function Header() {
 
       {mobileOpen && (
         <div className="border-t border-[var(--border)]">
-          <div
-            ref={panelRef}
-            className="mx-auto flex w-full max-w-5xl flex-col gap-3 px-5 py-4 text-sm"
-          >
-            <Link href="/" onClick={() => setMobileOpen(false)}>
-              Início
+          <div ref={panelRef} className="mx-auto flex w-full max-w-5xl flex-col gap-3 px-5 py-4 text-sm">
+            <Link href="/" onClick={() => setMobileOpen(false)}>{t("home")}</Link>
+            <Link href="/projetos" onClick={() => setMobileOpen(false)}>{t("projetos")}</Link>
+            <Link href="/sobre" onClick={() => setMobileOpen(false)}>{t("sobre")}</Link>
+            <Link href="/blog" onClick={() => setMobileOpen(false)} className="flex items-center gap-1.5 text-[var(--muted)] opacity-60">
+              {t("blog")}
+              <span className="rounded-full bg-[var(--accent-soft)] px-2 py-0.5 font-mono text-[10px] uppercase tracking-wide text-[var(--accent)]">
+                {t("blogBadge")}
+              </span>
             </Link>
-            <Link href="/projetos" onClick={() => setMobileOpen(false)}>
-              Projetos
-            </Link>
-            {/* <Link href="/blog" onClick={() => setMobileOpen(false)}>
-              Blog
-            </Link> */}
-            <Link href="/sobre" onClick={() => setMobileOpen(false)}>
-              Sobre
-            </Link>
-            {/* <a
-              href="mailto:sergiojunqueira.s@gmail.com"
-              onClick={() => setMobileOpen(false)}
-            >
-              Contato
-            </a> */}
           </div>
         </div>
       )}

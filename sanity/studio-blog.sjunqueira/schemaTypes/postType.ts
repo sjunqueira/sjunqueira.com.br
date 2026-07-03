@@ -27,6 +27,12 @@ export const postType = defineType({
       type: 'image',
     }),
     defineField({
+      name: 'categories',
+      title: 'Categories',
+      type: 'array',
+      of: [defineArrayMember({type: 'reference', to: [{type: 'category'}]})],
+    }),
+    defineField({
       name: 'body',
       type: 'array',
       of: [
