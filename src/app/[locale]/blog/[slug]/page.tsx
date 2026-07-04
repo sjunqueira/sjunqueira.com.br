@@ -1,4 +1,3 @@
-import { PortableText, type SanityDocument } from "next-sanity";
 import { portableTextComponents } from "./portableTextComponents";
 import { client } from "@/sanity/client";
 import Image from "next/image";
@@ -6,6 +5,8 @@ import { Link } from "../../../../../i18n/navigation";
 import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
+import { PortableText } from "@portabletext/react";
+import { type SanityDocument } from "@sanity/client";
 
 const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]`;
 

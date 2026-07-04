@@ -1,7 +1,7 @@
-import { type SanityDocument } from "next-sanity";
 
 import { client } from "@/sanity/client";
 import { Link } from "../../../../../i18n/navigation";
+import { SanityDocument } from "@sanity/client";
 
 const POSTS_QUERY = `*[
   _type == "post"
