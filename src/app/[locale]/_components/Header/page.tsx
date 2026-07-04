@@ -108,12 +108,7 @@ export default function Header() {
             <Link href="/" onClick={() => setMobileOpen(false)}>{t("home")}</Link>
             <Link href="/projetos" onClick={() => setMobileOpen(false)}>{t("projetos")}</Link>
             <Link href="/sobre" onClick={() => setMobileOpen(false)}>{t("sobre")}</Link>
-            <Link href="/blog" onClick={() => setMobileOpen(false)} className="flex items-center gap-1.5 text-[var(--muted)] opacity-60">
-              {t("blog")}
-              <span className="rounded-full bg-[var(--accent-soft)] px-2 py-0.5 font-mono text-[10px] uppercase tracking-wide text-[var(--accent)]">
-                {t("blogBadge")}
-              </span>
-            </Link>
+            <Link href="/blog" onClick={() => setMobileOpen(false)}>{t("blog")}</Link>
           </div>
         </div>
       )}

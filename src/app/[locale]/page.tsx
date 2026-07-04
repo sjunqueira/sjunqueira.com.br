@@ -4,7 +4,7 @@ import SpotlightSection, { Spotlight } from "./_components/spotlightSection/page
 import { RevealGroup, RevealItem } from "./_components/motionReveal/page";
 import PipelineDiagram from "./_components/pipelineDiagram/page";
 import StackCategories from "./_components/stackCategories/page";
-import GithubActivity from "./_components/githubActivity/page";
+import GithubActivity from "./_components/githubActivity/GithubActivity";
 
 
 type Stat = { value: string; label: string };

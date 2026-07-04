@@ -17,7 +17,11 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'www.gstatic.com'
-      }
+      },
+      { 
+        protocol: "https", 
+        hostname: "ghchart.rshah.org" 
+      },
     ],
   },
 };

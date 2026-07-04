@@ -3,11 +3,15 @@ import Image from "next/image";
 export default function GithubActivity({ username }: { username: string }) {
   return (
     <div className="space-y-4">
-      <Image
-        src={`https://ghchart.rshah.org/2f6fed/${username}`}
-        alt={`Contribuições recentes de ${username} no GitHub`}
-        className="w-full rounded-[var(--radius-lg)] border border-[var(--border)]"
-      />
+      <div className="relative aspect-[723/112] w-full">
+        <Image
+          src={`https://ghchart.rshah.org/2f6fed/${username}`}
+          alt={`Contribuições recentes de ${username} no GitHub`}
+          fill
+          unoptimized
+          className="object-cover"
+        />
+      </div>
       <a
         href={`https://github.com/${username}`}
         target="_blank"
