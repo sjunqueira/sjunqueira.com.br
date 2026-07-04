@@ -1,7 +1,5 @@
 import { client } from "@/sanity/client";
 import { Link } from "../../../../i18n/navigation";
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import imageUrlBuilder from "@sanity/image-url";
 import { getTranslations } from "next-intl/server";
 
 const BLOG_QUERY = `{
@@ -47,12 +45,8 @@ export default async function IndexPage({ params }: { params: Promise<{ locale: 
     posts: PostSummary[];
     categories: CategorySummary[];
   };
-  const { projectId, dataset } = client.config();
 
-  const urlFor = (source: SanityImageSource) =>
-    projectId && dataset
-      ? imageUrlBuilder({ projectId, dataset }).image(source)
-      : null;
+
 
   const posts = data?.posts ?? [];
   const categories = data?.categories ?? [];
@@ -135,6 +129,7 @@ export default async function IndexPage({ params }: { params: Promise<{ locale: 
               </p>
             ) : (
               posts.map((post) => {
+                
                 return (
                   <Link
                     key={post._id}

@@ -1,7 +1,5 @@
 import { PortableText, type SanityDocument } from "next-sanity";
-import imageUrlBuilder from "@sanity/image-url";
 import { portableTextComponents } from "./portableTextComponents";
-import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { client } from "@/sanity/client";
 import Image from "next/image";
 import { Link } from "../../../../../i18n/navigation";
@@ -11,12 +9,7 @@ import { getTranslations } from "next-intl/server";
 
 const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]`;
 
-const { projectId, dataset } = client.config();
 
-const urlFor = (source: SanityImageSource) =>
-  projectId && dataset
-    ? imageUrlBuilder({ projectId, dataset }).image(source)
-    : null;
 
 const options = { next: { revalidate: 30 } };
 
@@ -41,9 +34,6 @@ export default async function PostPage({
     notFound();
   }
 
-  const postImageUrl = post.image
-    ? urlFor(post.image)?.width(2200).height(1200).fit("crop").url()
-    : null;
 
   // Data formatada dinamicamente com base no locale
   const publishedAt = new Date(post.publishedAt).toLocaleDateString(
@@ -93,22 +83,7 @@ export default async function PostPage({
         )}
       </header>
 
-      {postImageUrl && (
-        <section>
-          <div className="relative overflow-hidden hover:translate-y-[-2px] transition rounded-3xl border border-[var(--border)] bg-[var(--surface)] shadow-sm">
-            <div className="relative aspect-[16/8]">
-              <Image
-                src={postImageUrl}
-                alt={post.title}
-                fill
-                priority
-                className="object-cover"
-                sizes="100vw"
-              />
-            </div>
-          </div>
-        </section>
-      )}
+      
 
       <section className="flex flex-col justify-center gap-8 md:flex-row md:items-start">
         <div>
