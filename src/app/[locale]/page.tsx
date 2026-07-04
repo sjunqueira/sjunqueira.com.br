@@ -5,7 +5,6 @@ import { RevealGroup, RevealItem } from "./_components/motionReveal/page";
 import PipelineDiagram from "./_components/pipelineDiagram/page";
 import StackCategories from "./_components/stackCategories/page";
 import GithubActivity from "./_components/githubActivity/page";
-import TechIconCluster from "./_components/techIconCluster/page";
 
 
 type Stat = { value: string; label: string };

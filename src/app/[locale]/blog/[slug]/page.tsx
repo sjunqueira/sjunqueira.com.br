@@ -153,7 +153,7 @@ export default async function PostPage({
 
                 <div>
                   <p className="mb-2 font-mono text-xs text-[var(--accent)]">
-                    // {t("aboutAuthor").toLowerCase()}
+                    {t("aboutAuthor").toLowerCase()}
                   </p>
 
                   <h3 className="text-xl font-bold text-[var(--foreground)]">

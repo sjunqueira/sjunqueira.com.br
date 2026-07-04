@@ -53,7 +53,8 @@ export default function Youtube() {
             {topics.map((topic, index) => (
               <li key={index} className="space-y-2">
                 <h3 className="font-mono text-lg font-bold text-[var(--foreground)]">
-                  <span className="text-[var(--accent)] mr-2">//</span>
+
+                  <span className="text-[var(--accent)] mr-2">../</span>
                   {topic.title}
                 </h3>
                 <p className="text-sm leading-relaxed text-[var(--muted)] pl-6 border-l border-[var(--border)] ml-1.5">

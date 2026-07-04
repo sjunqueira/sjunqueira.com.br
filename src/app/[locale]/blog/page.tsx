@@ -1,6 +1,5 @@
 import { client } from "@/sanity/client";
 import { Link } from "../../../../i18n/navigation";
-import Image from "next/image";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import imageUrlBuilder from "@sanity/image-url";
 import { getTranslations } from "next-intl/server";
@@ -101,7 +100,6 @@ export default async function IndexPage({ params }: { params: Promise<{ locale: 
         </div> */}
       </section>
 
-      {/* Grid das categorias e posts com uma leve linha divisória no topo (opcional, igual sua seção 2) */}
       <section className="grid gap-12 lg:grid-cols-[220px_minmax(0,1fr)] border-t border-[var(--border)] pt-12">
         <aside className="lg:sticky lg:top-24 lg:self-start">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--muted)]">
@@ -137,9 +135,6 @@ export default async function IndexPage({ params }: { params: Promise<{ locale: 
               </p>
             ) : (
               posts.map((post) => {
-                const postImageUrl = post.image
-                  ? urlFor(post.image)?.width(400).height(300).fit("crop").url()
-                  : null;
                 return (
                   <Link
                     key={post._id}

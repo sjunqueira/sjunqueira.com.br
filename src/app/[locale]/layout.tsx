@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Manrope } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -12,12 +11,6 @@ import Footer from "./_components/Footer/page";
 import { routing } from "../../../i18n/routing";
 import SiteCanvas from "./_components/siteCanvas/page";
 
-const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
-const jetBrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
-});
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Sergio Junqueira - Engenharia de Dados & Software",
