@@ -44,7 +44,7 @@
       "meta": "Education · in production",
       "description": "Technical data engineering courses, from zero to advanced — teaching reasoning, not just tools.",
       "tags": ["python", "nextjs", "database"],
-      "link": { "label": "learn about the project", "href": "/projetos/youtube", "external": true }
+      "link": { "label": "learn about the project", "href": "/projetos/youtube", "external": false }
     }
   ],
   "stack": {
