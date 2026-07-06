@@ -60,6 +60,7 @@ export default function PipelineDiagram() {
           <path d="M 240 240 H 280 V 315 A 15 15 0 0 0 295 330 H 330" />
           {/* Snowflake -> dbt */}
           <path d="M 330 330 L 420 330" />
+
           {/* Snowflake -> Data Mart */}
           <path d="M 330 330 L 330 420" />
           
@@ -104,10 +105,43 @@ export default function PipelineDiagram() {
 
         {/* Rota 5: Transformation (Snowflake -> dbt) */}
         <circle r="3" className="fill-indigo-400">
-          <animateMotion dur="2s" repeatCount="indefinite" begin="3.5s" path="M 330 330 L 420 330" />
-          <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="2s" repeatCount="indefinite" begin="3.5s" />
+          <animateMotion
+            dur="4s"
+            repeatCount="indefinite"
+            calcMode="linear"
+            keyPoints="0;1;1"
+            keyTimes="0;0.375;1"
+            path="M 330 330 L 420 330"
+          />
+          <animate
+            attributeName="opacity"
+            values="0;1;1;0;0"
+            keyTimes="0;0.05;0.375;0.4;1"
+            dur="4s"
+            repeatCount="indefinite"
+          />
         </circle>
 
+        <circle r="3" className="fill-cyan-400">
+          <animateMotion
+            dur="4s"
+            begin="2s"
+            repeatCount="indefinite"
+            calcMode="linear"
+            keyPoints="0;1;1"
+            keyTimes="0;0.375;1"
+            path="M 420 330 L 330 330"
+          />
+          <animate
+            attributeName="opacity"
+            values="0;1;1;0;0"
+            keyTimes="0;0.05;0.375;0.4;1"
+            dur="4s"
+            begin="2s"
+            repeatCount="indefinite"
+          />
+        </circle>
+        
         {/* Rota 6: Serving Looker (Data Mart -> Looker) */}
         <circle r="3" className="fill-blue-400">
           <animateMotion dur="1.5s" repeatCount="indefinite" begin="4.5s" path="M 330 420 L 240 420" />
