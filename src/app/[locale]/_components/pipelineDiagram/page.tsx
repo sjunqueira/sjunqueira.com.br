@@ -18,11 +18,11 @@ const nodes = [
   { id: "CDC", Icon: TbActivity, x: 150, y: 240 },
   
   // Coluna 3 (Orquestração e Eventos)
-  { id: "Airflow", Icon: SiApacheairflow, x: 240, y: 80 },
   { id: "Kafka", Icon: SiApachekafka, x: 240, y: 240 },
   { id: "Looker", Icon: SiLooker, x: 240, y: 420 }, // Looker volta para a coluna 3 no final
   
   // Coluna 4 (Processamento Principal)
+  { id: "Airflow", Icon: SiApacheairflow, x: 330, y: 240 },
   { id: "Spark", Icon: SiApachespark, x: 330, y: 150 },
   { id: "Snowflake", Icon: SiSnowflake, x: 330, y: 330 },
   { id: "Datamart", Icon: TbBuildingStore, x: 330, y: 420 },
@@ -72,9 +72,9 @@ export default function PipelineDiagram() {
         {/* === LINHAS TRACEJADAS (AIRFLOW ORQUESTRANDO) === */}
         <g className="stroke-orange-300 dark:stroke-orange-800/50" strokeWidth="2" fill="none" strokeDasharray="4 4">
           {/* Airflow -> Spark */}
-          <path d="M 240 80 L 330 150" />
+          <path d="M 330 240 L 330 150" />
           {/* Airflow -> Snowflake */}
-          <path d="M 240 80 L 330 330" />
+          <path d="M 330 240 L 330 330" />
         </g>
 
         {/* === PONTOS ANIMADOS DE DADOS === */}
@@ -115,13 +115,13 @@ export default function PipelineDiagram() {
         </circle>
 
         {/* Pulsos do Airflow */}
-        <circle r="2" className="fill-orange-400">
-          <animateMotion dur="2s" repeatCount="indefinite" path="M 240 80 L 330 150" />
-          <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="2s" repeatCount="indefinite" />
+        <circle r="2.5" className="fill-orange-400">
+          <animateMotion dur="2s" repeatCount="indefinite" path="M 330 240 L 330 150" />
+          <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="1.25s" repeatCount="indefinite" />
         </circle>
-        <circle r="2" className="fill-orange-400">
-          <animateMotion dur="2.5s" repeatCount="indefinite" begin="1s" path="M 240 80 L 330 330" />
-          <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="2.5s" repeatCount="indefinite" begin="1s" />
+        <circle r="2.5" className="fill-orange-400">
+          <animateMotion dur="2.5s" repeatCount="indefinite" begin="1s" path="M 330 240 L 330 330" />
+          <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="1.5s" repeatCount="indefinite" begin="1s" />
         </circle>
       </svg>
 

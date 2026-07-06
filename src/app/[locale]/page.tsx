@@ -76,7 +76,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 {t("ctaEmail")} →
               </a>
               <a
-                href="/resume.pdf"
+                href={t("resumeLink")}
                 download
                 className="inline-flex items-center gap-2 rounded-full border border-[var(--border-strong)] px-5 py-2.5 font-mono text-sm font-semibold text-[var(--foreground)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
               >
